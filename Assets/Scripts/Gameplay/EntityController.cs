@@ -1,3 +1,4 @@
+using Game.Gameplay.State;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,12 +9,10 @@ namespace Game.Gameplay
 {
     public class EntityController : MonoBehaviour
     {
-        //HealthController
-        //MovementController
-        //CombatController
-        [SerializeField] bool isPlayer = false;
+        [SerializeField] private bool isPlayer = false;
 
         [SerializeField] private Image bodyImage = null;
+        [SerializeField] private StateMachine stateMachine = null;
         [SerializeField] private HealthController healthController = null;
         [SerializeField] private MovementController movementController = null;
         [SerializeField] private CombatController combatController = null;
@@ -23,8 +22,7 @@ namespace Game.Gameplay
         public MovementController MovementController => movementController;
         public CombatController CombatController => combatController;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             if (!isPlayer)
             {
@@ -35,12 +33,11 @@ namespace Game.Gameplay
 
                 CombatController.SetEntityElement(element);
             }
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
+            if (stateMachine == null)
+                stateMachine = GetComponent<StateMachine>();
 
+            stateMachine.Initialize(this, new IdleState());
         }
     }
 }

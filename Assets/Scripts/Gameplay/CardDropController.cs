@@ -1,3 +1,4 @@
+using Game.Gameplay.Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace Game.Gameplay
     public interface ICardDropHandler 
     {
         public EntityController Entity { get; }
-        public void DropCard(Card card);
+        public void DropCard(EntityController attackerController, Card card);
         public void SetDropImageColor(Color color);
         public void ResetDropHandler();
     }
@@ -21,9 +22,10 @@ namespace Game.Gameplay
 
         public EntityController Entity => entityController;
 
-        public void DropCard(Card card)
+        public void DropCard(EntityController attackerController, Card card)
         {
             entityController.HealthController.TakeDamage(card.value);
+            CombatManager.Instance.CreateCombatPacket(attackerController, entityController, card);
         }
 
         public void SetDropImageColor(Color color)
