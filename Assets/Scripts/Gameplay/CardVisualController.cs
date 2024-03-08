@@ -49,6 +49,7 @@ namespace Game.Gameplay
             //Debug.Log("OnBeginDrag");
             Vector3 dragWorldPos = Camera.main.ScreenToWorldPoint(eventData.position);
             dragOffset = dragWorldPos - transform.position;
+            transform.localScale = Vector3.one * 0.5f;
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -56,13 +57,14 @@ namespace Game.Gameplay
             //Debug.Log("OnEndDrag");
             if (raycastedDropHandler != null)
             {
-                raycastedDropHandler.DropCard(deckVisualController.PlayerController, card);
+                raycastedDropHandler.DropCard(GameManager.Instance.PlayerController, card);
                 raycastedDropHandler.ResetDropHandler();
                 deckVisualController.RemoveCardFromDeck(this);
                 return;
             }
 
             transform.position = initialPosition;
+            transform.localScale = Vector3.one;
         }
 
         public void OnDrag(PointerEventData eventData)

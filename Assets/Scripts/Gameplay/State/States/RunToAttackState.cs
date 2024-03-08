@@ -2,12 +2,10 @@ using Game.Gameplay.Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using Unity.VisualScripting;
 
 namespace Game.Gameplay.State
 {
-    public class RunState : AState
+    public class RunToAttackState : AState
     {
         private bool finishedRun = false;
 
@@ -16,17 +14,15 @@ namespace Game.Gameplay.State
             base.Enter(entityController);
             //Trigger run animation
 
-            entityController.transform.DOMove(CombatManager.Instance.CurrentCombatPacket.target.transform.position, 2f)
-                .OnComplete(() => 
-                {
-                    finishedRun = true;                
-                });
+            entityController.CombatController.StopAttackWaiting();
+            Vector3 targetPosition = CombatManager.Instance.CurrentCombatPacket.target.transform.position;
+            entityController.MovementController.Move(targetPosition, OnCompleteRunCallback);
         }
 
         public override IState Execute()
         {
             if (finishedRun)
-                return new IdleState();
+                return new AttackState();
 
             return null;
         }
@@ -34,6 +30,11 @@ namespace Game.Gameplay.State
         public override void Exit()
         {
 
+        }
+
+        private void OnCompleteRunCallback()
+        {
+            finishedRun = true;
         }
     }
 }

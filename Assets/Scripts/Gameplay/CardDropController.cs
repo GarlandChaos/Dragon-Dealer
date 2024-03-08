@@ -24,7 +24,6 @@ namespace Game.Gameplay
 
         public void DropCard(EntityController attackerController, Card card)
         {
-            entityController.HealthController.TakeDamage(card.value);
             CombatManager.Instance.CreateCombatPacket(attackerController, entityController, card);
         }
 

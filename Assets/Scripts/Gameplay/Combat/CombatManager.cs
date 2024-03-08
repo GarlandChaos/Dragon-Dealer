@@ -21,17 +21,31 @@ namespace Game.Gameplay.Combat
 
     public class CombatManager : ASingleton<CombatManager>
     {
-        public event Action<CombatPacket> onAttackStarted = null;
-        private Stack<CombatPacket> combatPacketStack = new();
+        public event Action<CombatPacket> onCombatPacketCreated = null;
+        public event Action onCurrentCombatFinished = null;
+        private Queue<CombatPacket> combatPacketQueue = new();
 
         //Properties
-        public CombatPacket CurrentCombatPacket => combatPacketStack.Peek();
+        public CombatPacket CurrentCombatPacket => combatPacketQueue.Peek();
 
         public void CreateCombatPacket(EntityController attacker, EntityController target, Card card)
         {
             CombatPacket packet = new CombatPacket(attacker, target, card);
-            combatPacketStack.Push(packet);
-            onAttackStarted?.Invoke(packet);
+            combatPacketQueue.Enqueue(packet);
+
+            if (combatPacketQueue.Count > 1) return;
+            
+            onCombatPacketCreated?.Invoke(packet);
+        }
+
+        public void FinishCurrentCombat()
+        {
+            combatPacketQueue.Dequeue();
+
+            onCurrentCombatFinished?.Invoke();
+
+            if(combatPacketQueue.Count > 0)
+                onCombatPacketCreated?.Invoke(combatPacketQueue.Peek());
         }
     }
 }
