@@ -20,7 +20,7 @@ namespace Game.UI
         
         private void OnPlayButton()
         {
-
+            UIManager.Instance.RequestScreen(ScreenIds.GAMEPLAY_SCREEN, true);
         }
 
         private void OnCreditsButton()

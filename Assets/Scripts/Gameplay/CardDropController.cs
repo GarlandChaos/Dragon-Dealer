@@ -16,11 +16,16 @@ namespace Game.Gameplay
 
     public class CardDropController : MonoBehaviour, ICardDropHandler
     {
-        [SerializeField] private EntityController entityController = null;
+        private EntityController entityController = null;
         [SerializeField] private Image dropAreaImage = null;
         [SerializeField] private Color defaultDropAreaColor = Color.black;
 
         public EntityController Entity => entityController;
+
+        public void Initialize(EntityController entityController)
+        {
+            this.entityController = entityController;
+        }
 
         public void DropCard(EntityController attackerController, Card card)
         {

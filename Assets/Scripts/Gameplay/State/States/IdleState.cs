@@ -35,7 +35,7 @@ namespace Game.Gameplay.State
             if (cardUsedOnItself)
             {
                 Element element = CombatManager.Instance.CurrentCombatPacket.card.element;
-                entityController.CombatController.SetEntityElement(element);
+                entityController.SetEntityElement(element);
                 return null;
             }
 

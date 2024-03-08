@@ -10,7 +10,6 @@ namespace Game
     {
         [SerializeField] private EntityController playerControllerPrefab = null;
         private EntityController playerController = null;
-        [SerializeField] private Transform playerAreaTransform = null;
 
         //Properties
         public EntityController PlayerController => playerController;
@@ -18,7 +17,17 @@ namespace Game
         protected override void Awake()
         {
             base.Awake();
-            playerController = Instantiate(playerControllerPrefab, playerAreaTransform, false);
+        }
+
+        private void Start()
+        {
+            LevelController.Instance.InitializeLevel();
+        }
+
+        public EntityController InstantiatePlayer()
+        {
+            playerController = Instantiate(playerControllerPrefab);
+            return playerController;
         }
     }
 }

@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8897942309467784559}
   m_Layer: 5
-  m_Name: Restart Level Button Area
+  m_Name: Next Level Button Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 7319310490119810283}
   - component: {fileID: 7023913283231067484}
   m_Layer: 5
-  m_Name: Restart Level Button Text
+  m_Name: Next Level Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retry
+  m_text: Next Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106d62ee8b3818143a525ebd7a8c4bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noTextString: Retry
+  noTextString: Next Level
   characterLimit: 0
   text: {fileID: 7319310490119810283}
 --- !u!1 &8662960307964713997
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 7353931309759514374}
   - component: {fileID: 2087810954679688102}
   m_Layer: 5
-  m_Name: Restart Level Button
+  m_Name: Next Level Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,9 +765,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3892362898680528150}
-  - component: {fileID: 8947372510279763386}
+  - component: {fileID: 2466226961718264252}
   m_Layer: 5
-  m_Name: Game Over Screen
+  m_Name: Win Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +794,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8947372510279763386
+--- !u!114 &2466226961718264252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -803,10 +803,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8701407177334874275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d51dc6995f8eb6468980269df49ab4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 527576efb92b0ec4dadc0ab1594233ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartLevelButton: {fileID: 2087810954679688102}
+  nextLevelButton: {fileID: 2087810954679688102}
   mainMenuButton: {fileID: 1343193169930787857}
 --- !u!1 &8738056405534214166
 GameObject:
