@@ -19,7 +19,7 @@ namespace Game.UI
 
         public override void Show(params object[] values)
         {
-            bool showNextLevelButton = LevelController.Instance.HasLevelsRemaining;
+            bool showNextLevelButton = LevelManager.Instance.HasLevelsRemaining;
             nextLevelButton.gameObject.SetActive(showNextLevelButton);
             
             base.Show(values);
@@ -27,7 +27,7 @@ namespace Game.UI
 
         private void OnNextLevelButton()
         {
-            LevelController.Instance.GoToNextLevel();
+            LevelManager.Instance.GoToNextLevel();
         }
 
         private void OnMainMenuButton()

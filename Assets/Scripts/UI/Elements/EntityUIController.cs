@@ -12,6 +12,7 @@ namespace Game.UI
         private EntityController entityController = null;
         private const string healthDisplayDivider = "/";
 
+        [SerializeField] private RectTransform bodyPositionReferenceRectTransform = null;
         [SerializeField] private CardDropController cardDropController = null;
         [SerializeField] private TextSetter healthTextSetter = null;
         [SerializeField] private Image attackTimerImage = null;
@@ -38,7 +39,11 @@ namespace Game.UI
             this.entityController = entityController;
             entityController.HealthController.onHealthUpdated += SetHealthText;
             entityController.CombatController.onAttackTimerUpdated += OnAttackTimerUpdated;
-            
+            //entityController.transform.position = bodyPositionReferenceRectTransform.position;
+            Vector3 worldPos = UIManager.Instance.CameraUI.ScreenToWorldPoint(bodyPositionReferenceRectTransform.anchoredPosition);
+            Debug.Log(entityController.transform.position + " / " + worldPos);
+
+
             bool isPlayer = entityController.IsPlayer;
             attackTimerImage.gameObject.SetActive(!isPlayer);
         }

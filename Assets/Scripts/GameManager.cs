@@ -19,11 +19,6 @@ namespace Game
             base.Awake();
         }
 
-        private void Start()
-        {
-            LevelController.Instance.InitializeLevel();
-        }
-
         public EntityController InstantiatePlayer()
         {
             playerController = Instantiate(playerControllerPrefab);

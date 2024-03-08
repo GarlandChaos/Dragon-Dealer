@@ -13,7 +13,7 @@ namespace Game.Gameplay
 
         [SerializeField] private bool isPlayer = false;
 
-        [SerializeField] private Image bodyImage = null;
+        [SerializeField] private SpriteRenderer bodySpriteRenderer = null;
         [SerializeField] private StateMachine stateMachine = null;
         [SerializeField] private HealthController healthController = null;
         [SerializeField] private MovementController movementController = null;
@@ -21,23 +21,13 @@ namespace Game.Gameplay
 
         public Element Element => element;
         public bool IsPlayer => isPlayer;
-        public Image BodyImage => bodyImage;
+        public SpriteRenderer BodyImage => bodySpriteRenderer;
         public HealthController HealthController => healthController;
         public MovementController MovementController => movementController;
         public CombatController CombatController => combatController;
 
         private void Start()
         {
-            if (!isPlayer)
-            {
-                string[] elementArray = Enum.GetNames(typeof(Element));
-                int index = UnityEngine.Random.Range(1, elementArray.Length);
-                if (!Enum.TryParse(elementArray[index], out Element element))
-                    element = Element.GRASS;
-
-                SetEntityElement(element);
-            }
-
             if (stateMachine == null)
                 stateMachine = GetComponent<StateMachine>();
 
@@ -47,7 +37,7 @@ namespace Game.Gameplay
         public void SetEntityElement(Element element)
         {
             this.element = element;
-            bodyImage.color = GetElementColor(element);
+            bodySpriteRenderer.color = GetElementColor(element);
         }
 
         public Color GetElementColor(Element element)

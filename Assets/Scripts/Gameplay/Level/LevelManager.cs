@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace Game.Gameplay
 {
-    public class LevelController : ASingleton<LevelController>
+    public class LevelManager : ASingleton<LevelManager>
     {
         [Header("External Data")]
         [SerializeField] private List<Level> levelList = new();
 
         [Header("Self Contained References")]
-        [SerializeField] private EntityControllerPool entityControllerPool = new();
+        [SerializeField] private EntityControllerPool entityControllerPool = null;
 
         private int currentLevel = 0;
         private int currentWave = 0;
@@ -39,13 +39,16 @@ namespace Game.Gameplay
             if (levelList[currentLevel].WaveList.Count == 0) return;
 
             List<WaveUnit> waveUnitList = levelList[currentLevel].WaveList[currentWave].WaveUnitList;
-
+            Debug.Log(waveUnitList.Count);
             foreach (WaveUnit waveUnit in waveUnitList)
             {
-                EntityController enemy = entityControllerPool.Pool.Get();
-                enemy.SetEntityElement(waveUnit.element);
-                enemyList.Add(enemy);
-                onEnemyInstantiated?.Invoke(enemy);
+                for (int i = 0; i < waveUnit.numberOfEnemies; i++)
+                {
+                    EntityController enemy = entityControllerPool.Pool.Get();
+                    enemy.SetEntityElement(waveUnit.element);
+                    enemyList.Add(enemy);
+                    onEnemyInstantiated?.Invoke(enemy);
+                }
             }
         }
 

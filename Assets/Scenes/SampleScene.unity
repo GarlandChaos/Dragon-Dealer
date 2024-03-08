@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 1373781173}
   - component: {fileID: 1373781172}
   m_Layer: 0
-  m_Name: Level Controller
+  m_Name: Level Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 1373781171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9077414, y: 1.5637959, z: 1605.7274}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -352,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 1614401172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -388,7 +388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControllerPrefab: {fileID: 7097226480934724835, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
-  playerAreaTransform: {fileID: 0}
 --- !u!4 &1631769351
 Transform:
   m_ObjectHideFlags: 0
@@ -398,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 1631769349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9077414, y: 1.5637959, z: 1605.7274}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -442,7 +441,7 @@ Transform:
   m_GameObject: {fileID: 1864365731}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9077414, y: 1.5637959, z: 1605.7274}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -504,6 +503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6577287556627098338, guid: 3def9ef0b981e5d479da62738f72d4aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -514,8 +517,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1631769351}
   - {fileID: 1614401174}
   - {fileID: 1864365733}
-  - {fileID: 1631769351}
-  - {fileID: 3479853936269711819}
   - {fileID: 1373781173}
+  - {fileID: 3479853936269711819}

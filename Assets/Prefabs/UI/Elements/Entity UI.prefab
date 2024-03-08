@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a0fe19cab8fb04e8b8b7497f937a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyPositionReferenceRectTransform: {fileID: 5694758860606437057}
   cardDropController: {fileID: 6948017927286745540}
   healthTextSetter: {fileID: 8103405144633401567}
   attackTimerImage: {fileID: 6103017557824384076}
@@ -86,8 +87,8 @@ RectTransform:
   - {fileID: 3288234032738775574}
   m_Father: {fileID: 5155805318947293823}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: -0.753834, y: 0.22824502}
-  m_AnchorMax: {x: -0.1, y: 0.78486776}
+  m_AnchorMin: {x: 0, y: 0.2334524}
+  m_AnchorMax: {x: 0.28357646, y: 0.7665476}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -123,8 +124,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5155805318947293823}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1.2217718}
+  m_AnchorMin: {x: 0.28357646, y: 0.7665476}
+  m_AnchorMax: {x: 0.7164235, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -178,7 +179,7 @@ GameObject:
   - component: {fileID: 1577479628401290765}
   - component: {fileID: 5402120177920645710}
   m_Layer: 5
-  m_Name: Body
+  m_Name: Body Position Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4272551748660374921}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -527,8 +528,8 @@ RectTransform:
   - {fileID: 9085757215099367025}
   m_Father: {fileID: 5155805318947293823}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: -0.19112137}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.12994076}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -13,18 +13,9 @@ namespace Game.UI
         [SerializeField] private Transform playerAreaTransform = null;
         [SerializeField] private Transform enemyAreaTransform = null;
 
-        private void Start()
-        {
-            LevelController.Instance.onEnemyInstantiated += InstantiateEntityUI;
-        }
-
-        private void OnDestroy()
-        {
-            LevelController.Instance.onEnemyInstantiated -= InstantiateEntityUI;
-        }
-
         public override void Show(params object[] values)
         {
+            LevelManager.Instance.onEnemyInstantiated += InstantiateEntityUI;
             base.Show(values);
 
             EntityController playerController = GameManager.Instance.PlayerController;
@@ -32,6 +23,13 @@ namespace Game.UI
                 playerController = GameManager.Instance.InstantiatePlayer();
 
             InstantiateEntityUI(playerController);
+            LevelManager.Instance.InitializeLevel();
+        }
+
+        public override void Hide()
+        {
+            LevelManager.Instance.onEnemyInstantiated -= InstantiateEntityUI;
+            base.Hide();
         }
 
         private void InstantiateEntityUI(EntityController entityController)

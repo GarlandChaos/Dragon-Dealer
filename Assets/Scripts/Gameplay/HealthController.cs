@@ -13,9 +13,6 @@ namespace Game.Gameplay
         [SerializeField] private int healthPointsMax = 5;
         private int currentHealthPoints = 5;
 
-        [Header("Self Contained References")]
-        [SerializeField] private TextSetter healthTextSetter = null;
-
         //[Header("Game Events")]
         //[SerializeField] private GameEvent playerHealedEvent = null;
         //[SerializeField] private GameEvent entityDeadEvent = null;
