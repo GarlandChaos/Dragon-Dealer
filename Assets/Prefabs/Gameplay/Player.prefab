@@ -30,11 +30,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1002310165323390083}
   - {fileID: 224760597628374847}
   - {fileID: 5179442380771311591}
   - {fileID: 2602561733041236807}
   - {fileID: 3851353709467120308}
-  - {fileID: 1002310165323390083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7097226480934724835
@@ -172,8 +172,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6012673310558785024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -273,7 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90c2d4893bda1249b4a33b12a7f705d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityController: {fileID: 7097226480934724835}
   healthPointsMax: 150
 --- !u!1 &8961362341416595680
 GameObject:
@@ -319,5 +318,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7f33fa71625994ab1496dc1f1dd3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityController: {fileID: 7097226480934724835}
   waitForAttackDuration: 0

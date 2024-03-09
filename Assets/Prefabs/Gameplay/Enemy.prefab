@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1630798264788821818, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: m_Name
-      value: Entity Variant
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2166550738037698698, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: healthPointsMax
-      value: 25
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3824092844164808619, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: useAttackTimer

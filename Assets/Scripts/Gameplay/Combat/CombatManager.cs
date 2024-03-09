@@ -28,6 +28,16 @@ namespace Game.Gameplay.Combat
         //Properties
         public CombatPacket CurrentCombatPacket => combatPacketQueue.Peek();
 
+        private void Start()
+        {
+            LevelManager.Instance.onLevelStarted += OnLevelStarted;
+        }
+
+        private void OnDestroy()
+        {
+            LevelManager.Instance.onLevelStarted -= OnLevelStarted;
+        }
+
         public void CreateCombatPacket(EntityController attacker, EntityController target, Card card)
         {
             CombatPacket packet = new CombatPacket(attacker, target, card);
@@ -46,6 +56,11 @@ namespace Game.Gameplay.Combat
 
             if(combatPacketQueue.Count > 0)
                 onCombatPacketCreated?.Invoke(combatPacketQueue.Peek());
+        }
+
+        private void OnLevelStarted()
+        {
+            combatPacketQueue.Clear();
         }
     }
 }

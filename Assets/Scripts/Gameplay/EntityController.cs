@@ -26,12 +26,18 @@ namespace Game.Gameplay
         public MovementController MovementController => movementController;
         public CombatController CombatController => combatController;
 
-        private void Start()
+        public void Initialize()
         {
             if (stateMachine == null)
                 stateMachine = GetComponent<StateMachine>();
 
+            healthController.Initialize(this);
+            combatController.Initialize(this);
             stateMachine.Initialize(this, new IdleState());
+            
+            if (!IsPlayer) return;
+
+            SetEntityElement(Element.NONE);
         }
 
         public void SetEntityElement(Element element)

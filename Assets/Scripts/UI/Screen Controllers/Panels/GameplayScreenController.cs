@@ -8,7 +8,12 @@ namespace Game.UI
 {
     public class GameplayScreenController : APanelScreenController
     {
+        //Runtime Data
+        private Dictionary<EntityController, EntityUIController> entityUIControlerDictionary = new();
+
         [Header("Self Contained References")]
+        [SerializeField] private EntityUIController playerUIControllerPrefab = null;
+        [SerializeField] private EntityUIController playerUIController = null;
         [SerializeField] private EntityUIControllerPool entityUIControllerPool = null;
         [SerializeField] private Transform playerAreaTransform = null;
         [SerializeField] private Transform enemyAreaTransform = null;
@@ -18,11 +23,9 @@ namespace Game.UI
             LevelManager.Instance.onEnemyInstantiated += InstantiateEntityUI;
             base.Show(values);
 
-            EntityController playerController = GameManager.Instance.PlayerController;
-            if (GameManager.Instance.PlayerController == null)
-                playerController = GameManager.Instance.InstantiatePlayer();
+            InitializePlayerUIController();
 
-            InstantiateEntityUI(playerController);
+            LevelManager.Instance.ResetLevelIndex();
             LevelManager.Instance.InitializeLevel();
         }
 
@@ -32,13 +35,53 @@ namespace Game.UI
             base.Hide();
         }
 
+        public void InitializePlayerUIController()
+        {
+            EntityController playerController = GameManager.Instance.PlayerController;
+            if (playerController == null)
+                playerController = GameManager.Instance.GetInitializedPlayer();
+
+
+            if (playerUIController != null)
+            {
+                playerController.Initialize();
+                playerUIController.Initialize(playerController);
+                playerController.gameObject.SetActive(true);
+                playerUIController.gameObject.SetActive(true);
+                return;
+            }
+            
+            InstantiateEntityUI(playerController);
+        }
+
         private void InstantiateEntityUI(EntityController entityController)
         {
-            EntityUIController entityUIController = entityUIControllerPool.Pool.Get();
+            entityController.HealthController.onEntityDead += OnEntityDead;
+
+            EntityUIController entityUIController = 
+                entityController.IsPlayer ? Instantiate(playerUIControllerPrefab) : entityUIControllerPool.Pool.Get();
             entityUIController.Initialize(entityController);
+
+            if (entityController.IsPlayer)
+                playerUIController = entityUIController;
+
+            if(!entityUIControlerDictionary.ContainsKey(entityController))
+                entityUIControlerDictionary.Add(entityController, entityUIController);
 
             Transform parentTransform = entityController.IsPlayer ? playerAreaTransform : enemyAreaTransform;
             entityUIController.transform.SetParent(parentTransform, false);
+        }
+
+        public void OnEntityDead(EntityController entityController)
+        {
+            entityController.HealthController.onEntityDead -= OnEntityDead;
+
+            EntityUIController entityUIController = entityUIControlerDictionary[entityController];
+            entityUIControllerPool.Pool.Release(entityUIController);
+            entityUIControlerDictionary.Remove(entityController);
+
+            foreach (KeyValuePair<EntityController, EntityUIController> kvp in entityUIControlerDictionary)
+                kvp.Value.SetEntityBodyPosition();
         }
     }
 }

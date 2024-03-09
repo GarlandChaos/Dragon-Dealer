@@ -17,7 +17,7 @@ namespace Game.Gameplay
         public Card GetCard()
         {
             string[] elementArray = Enum.GetNames(typeof(Element));
-            int index = UnityEngine.Random.Range(0, elementArray.Length);
+            int index = UnityEngine.Random.Range(1, elementArray.Length);
             if (!Enum.TryParse(elementArray[index], out Element cardElement))
                 cardElement = Element.GRASS;
 

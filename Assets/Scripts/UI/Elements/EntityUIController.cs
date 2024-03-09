@@ -30,32 +30,36 @@ namespace Game.UI
 
             if (entityController == null) return;
 
-            entityController.HealthController.onHealthUpdated -= SetHealthText;
+            entityController.HealthController.onHealthUpdated -= OnHealthUpdated;
             entityController.CombatController.onAttackTimerUpdated -= OnAttackTimerUpdated;
         }
 
         public void Initialize(EntityController entityController)
         {
             this.entityController = entityController;
-            entityController.HealthController.onHealthUpdated += SetHealthText;
-            entityController.CombatController.onAttackTimerUpdated += OnAttackTimerUpdated;
-            //entityController.transform.position = bodyPositionReferenceRectTransform.position;
-            Vector3 worldPos = UIManager.Instance.CameraUI.ScreenToWorldPoint(bodyPositionReferenceRectTransform.anchoredPosition);
-            Debug.Log(entityController.transform.position + " / " + worldPos);
 
+            entityController.HealthController.onHealthUpdated += OnHealthUpdated;
+            entityController.CombatController.onAttackTimerUpdated += OnAttackTimerUpdated;
+
+            cardDropController.Initialize(entityController);
+
+            SetEntityBodyPosition();
 
             bool isPlayer = entityController.IsPlayer;
             attackTimerImage.gameObject.SetActive(!isPlayer);
+            cardDropController.gameObject.SetActive(true);
         }
 
-        public void SetHealthText(int currentHealthPoints, int healthPointsMax)
+        public void OnHealthUpdated(int currentHealthPoints, int healthPointsMax)
         {
             string healthString = currentHealthPoints.ToString() + healthDisplayDivider + healthPointsMax;
             healthTextSetter.SetText(healthString);
         }
 
-        private void OnCombatPacketCreated(CombatPacket obj)
+        private void OnCombatPacketCreated(CombatPacket packet)
         {
+            if (packet.attacker == packet.target) return;
+
             cardDropController.gameObject.SetActive(false);
         }
 
@@ -73,6 +77,20 @@ namespace Game.UI
             }
 
             attackTimerImage.fillAmount = attackTimer / waitForAttackDuration;
+        }
+
+        public void SetEntityBodyPosition()
+        {
+            StartCoroutine(SetEntityBodyPositionRoutine(entityController));
+        }
+
+        private IEnumerator SetEntityBodyPositionRoutine(EntityController entityController)
+        {
+            yield return new WaitForEndOfFrame();
+
+            Vector3 bodyPosition = bodyPositionReferenceRectTransform.position;
+            entityController.transform.position = bodyPosition;
+            entityController.MovementController.SetInitialPosition(bodyPosition);
         }
     }
 }

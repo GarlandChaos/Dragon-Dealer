@@ -33,6 +33,7 @@ namespace Game.UI
         private void OnMainMenuButton()
         {
             UIManager.Instance.RequestScreen(ScreenIds.MAIN_MENU_SCREEN, true);
+            Hide();
         }
     }
 }

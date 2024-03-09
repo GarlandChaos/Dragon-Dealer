@@ -40,10 +40,10 @@ namespace Game.Gameplay
         {
             cardVisualControllerList.Remove(cardVisualController);
             Destroy(cardVisualController.gameObject); //TODO: use object pool instead of destroying
-            StartCoroutine(SetDeckCoroutine());
+            StartCoroutine(SetDeckRoutine());
         }
 
-        private IEnumerator SetDeckCoroutine()
+        private IEnumerator SetDeckRoutine()
         {
             yield return new WaitForSecondsRealtime(3f);
             SetDeck();

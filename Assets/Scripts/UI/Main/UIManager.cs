@@ -162,10 +162,10 @@ namespace Game.UI
         public void RequestScreenDelayed(string screenId, bool showScreen)
         {
             StopAllCoroutines();
-            StartCoroutine(RequestScreenDelayedCoroutine(screenId, showScreen));
+            StartCoroutine(RequestScreenDelayedRoutine(screenId, showScreen));
         }
 
-        private IEnumerator RequestScreenDelayedCoroutine(string screenId, bool showScreen)
+        private IEnumerator RequestScreenDelayedRoutine(string screenId, bool showScreen)
         {
             WaitForEndOfFrame wait = new WaitForEndOfFrame();
             while (IsScreenVisible(screenId) == showScreen)

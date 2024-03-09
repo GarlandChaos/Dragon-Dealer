@@ -14,7 +14,6 @@ namespace Game.Gameplay.State
             base.Enter(entityController);
             //Trigger run animation
 
-            entityController.CombatController.StopWaitingToAttack();
             Vector3 targetPosition = CombatManager.Instance.CurrentCombatPacket.target.transform.position;
             entityController.MovementController.Move(targetPosition, OnCompleteRunCallback);
         }

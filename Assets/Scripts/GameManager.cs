@@ -19,10 +19,28 @@ namespace Game
             base.Awake();
         }
 
-        public EntityController InstantiatePlayer()
+        private void Start()
         {
-            playerController = Instantiate(playerControllerPrefab);
+            LevelManager.Instance.onGameWon += OnGameWon;  
+        }
+
+        private void OnDestroy()
+        {
+            LevelManager.Instance.onGameWon -= OnGameWon;
+        }
+
+        public EntityController GetInitializedPlayer()
+        {
+            if(playerController == null)
+                playerController = Instantiate(playerControllerPrefab);
+            
+            playerController.Initialize();
             return playerController;
+        }
+
+        private void OnGameWon()
+        {
+            playerController.gameObject.SetActive(false);
         }
     }
 }

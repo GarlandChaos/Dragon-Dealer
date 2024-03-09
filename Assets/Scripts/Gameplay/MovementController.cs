@@ -12,9 +12,9 @@ namespace Game.Gameplay
         [SerializeField] private float moveDuration = 0.5f;
         private Vector3 initialPosition = Vector3.zero;
 
-        private void Start()
+        public void SetInitialPosition(Vector3 position)
         {
-            initialPosition = transform.position;
+            initialPosition = position;
         }
 
         public void Move(Vector3 positionToMove, Action onCompleteCallback = null)

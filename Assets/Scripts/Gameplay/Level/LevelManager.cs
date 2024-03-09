@@ -21,8 +21,15 @@ namespace Game.Gameplay
         private List<EntityController> enemyList = new();
 
         public Action<EntityController> onEnemyInstantiated = null;
+        public Action onLevelStarted = null;
+        public Action onGameWon = null;
 
         public bool HasLevelsRemaining => currentLevel + 1 < levelList.Count;
+
+        public void ResetLevelIndex()
+        {
+            currentLevel = 0;
+        }
 
         public void InitializeLevel()
         {
@@ -39,26 +46,29 @@ namespace Game.Gameplay
             if (levelList[currentLevel].WaveList.Count == 0) return;
 
             List<WaveUnit> waveUnitList = levelList[currentLevel].WaveList[currentWave].WaveUnitList;
-            Debug.Log(waveUnitList.Count);
             foreach (WaveUnit waveUnit in waveUnitList)
             {
                 for (int i = 0; i < waveUnit.numberOfEnemies; i++)
                 {
                     EntityController enemy = entityControllerPool.Pool.Get();
                     enemy.SetEntityElement(waveUnit.element);
+                    enemy.Initialize();
                     enemyList.Add(enemy);
                     onEnemyInstantiated?.Invoke(enemy);
                 }
             }
+
+            StartCoroutine(RaiseOnLevelStartedEventRoutine());
         }
 
         private void GoToNextWave()
         {
             currentWave++;
 
-            if(currentWave > waveCount)
+            if(currentWave >= waveCount)
             {
                 GoToNextLevel();
+                return;
             }
 
             SpawnWave();
@@ -68,20 +78,30 @@ namespace Game.Gameplay
         {
             currentLevel++;
 
-            if(currentLevel > levelList.Count)
+            if(currentLevel >= levelList.Count)
             {
-                UIManager.Instance.RequestScreen(ScreenIds.MAIN_MENU_SCREEN, true);
+                UIManager.Instance.RequestScreen(ScreenIds.GAMEPLAY_SCREEN, false);
+                UIManager.Instance.RequestScreen(ScreenIds.WIN_SCREEN, true);
+                onGameWon?.Invoke();
+                return;
             }
 
             InitializeLevel();
         }
 
-        public void OnEnemyDefeated(EntityController enemy)
+        public void ReleaseDeadEnemy(EntityController enemy)
         {
+            entityControllerPool.Pool.Release(enemy);
             enemyList.Remove(enemy);
 
             if (enemyList.Count == 0)
                 GoToNextWave();
+        }
+
+        private IEnumerator RaiseOnLevelStartedEventRoutine()
+        {
+            yield return new WaitForEndOfFrame();
+            onLevelStarted?.Invoke();
         }
     }
 }

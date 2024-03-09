@@ -27,7 +27,7 @@ namespace Game.Gameplay.State
 
         public override void Exit()
         {
-            entityController.CombatController.StartWaitingToAttack();
+            entityController.CombatController.ChargeAttack();
             CombatManager.Instance.FinishCurrentCombat();
         }
 

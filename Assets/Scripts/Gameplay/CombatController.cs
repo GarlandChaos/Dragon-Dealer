@@ -9,38 +9,64 @@ namespace Game.Gameplay
 {
     public class CombatController : MonoBehaviour
     {
-        [SerializeField] private EntityController entityController = null;
+        private EntityController entityController = null;
 
-        private bool isWaitingToAttack = true;
-        private float attackTimer = 0;
-        [SerializeField] private float waitForAttackDuration = 0;
+        private bool isChargingAttack = true;
+        private float attackTimer = 0f;
+        [SerializeField] private float waitForAttackDuration = 0f;
 
         public Action<float, float> onAttackTimerUpdated = null;
 
+        private void Start()
+        {
+            CombatManager.Instance.onCombatPacketCreated += OnCombatPacketCreated;
+            CombatManager.Instance.onCurrentCombatFinished += OnCurrentCombatFinished;
+        }
+
         private void Update()
         {
-            if (!entityController.IsPlayer) return;
+            if (entityController.IsPlayer) return;
 
-            if (!isWaitingToAttack) return;
+            if (!isChargingAttack) return;
 
             attackTimer += Time.deltaTime;
+
             onAttackTimerUpdated?.Invoke(attackTimer, waitForAttackDuration);
+
             if(attackTimer >= waitForAttackDuration)
             {
-                StopWaitingToAttack();
+                StopChargingAttack();
                 Card attackCard = new Card(entityController.Element, UnityEngine.Random.Range(5, 26));
                 CombatManager.Instance.CreateCombatPacket(entityController, GameManager.Instance.PlayerController, attackCard);
             }
         }
 
-        public void StartWaitingToAttack()
+        public void Initialize(EntityController entityController)
         {
-            isWaitingToAttack = true;
+            this.entityController = entityController;
+
+            isChargingAttack = true;
+            attackTimer = 0f;
         }
 
-        public void StopWaitingToAttack()
+        private void OnCurrentCombatFinished()
         {
-            isWaitingToAttack = false;
+            ChargeAttack();
+        }
+
+        private void OnCombatPacketCreated(CombatPacket packet)
+        {
+            isChargingAttack = false;
+        }
+
+        public void ChargeAttack()
+        {
+            isChargingAttack = true;
+        }
+
+        public void StopChargingAttack()
+        {
+            isChargingAttack = false;
             attackTimer = 0f;
 
             onAttackTimerUpdated?.Invoke(attackTimer, waitForAttackDuration);

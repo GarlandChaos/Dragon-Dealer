@@ -46,7 +46,6 @@ namespace Game.Gameplay
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            //Debug.Log("OnBeginDrag");
             Vector3 dragWorldPos = Camera.main.ScreenToWorldPoint(eventData.position);
             dragOffset = dragWorldPos - transform.position;
             transform.localScale = Vector3.one * 0.5f;
@@ -54,7 +53,6 @@ namespace Game.Gameplay
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            //Debug.Log("OnEndDrag");
             if (raycastedDropHandler != null)
             {
                 raycastedDropHandler.DropCard(GameManager.Instance.PlayerController, card);
@@ -69,7 +67,6 @@ namespace Game.Gameplay
 
         public void OnDrag(PointerEventData eventData)
         {
-            //Debug.Log("OnDrag");
             Vector3 dragWorldPos = Camera.main.ScreenToWorldPoint(eventData.position);
             Vector3 newPos = dragWorldPos - dragOffset;
             newPos.z = Camera.main.nearClipPlane;
