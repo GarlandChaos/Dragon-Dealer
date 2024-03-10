@@ -96,6 +96,7 @@ namespace Game.Gameplay
 
         public void ReleaseDeadEnemy(EntityController enemy)
         {
+            ScoreManager.Instance.AddPointsToScore(currentLevel, 15);
             EntityUIControllerManager.Instance.ReleaseEntityUIController(enemy.EntityUIController);
             EntityControllerManager.Instance.ReleaseEntityController(enemy);
 

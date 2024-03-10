@@ -14,6 +14,7 @@ namespace Game.Gameplay
         private Card card;
         private ICardDropHandler raycastedDropHandler = null;
         private CardSlot cardSlot = null;
+        private float dragScale = 0.3f;
 
         [Header("Object Data")]
         [SerializeField] private Color grassElementColor = Color.green;
@@ -52,7 +53,7 @@ namespace Game.Gameplay
         {
             Vector3 dragWorldPos = Camera.main.ScreenToWorldPoint(eventData.position);
             dragOffset = dragWorldPos - transform.position;
-            transform.localScale = Vector3.one * 0.5f;
+            transform.localScale = Vector3.one * dragScale;
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -61,7 +62,7 @@ namespace Game.Gameplay
             {
                 raycastedDropHandler.DropCard(LevelManager.Instance.PlayerController, card);
                 raycastedDropHandler.ResetDropHandler();
-                cardSlot.RemoveCard(this);
+                cardSlot.RemoveCard();
                 return;
             }
 

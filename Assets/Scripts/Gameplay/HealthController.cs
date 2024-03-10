@@ -42,7 +42,7 @@ namespace Game.Gameplay
         {
             currentHealthPoints -= damagePoints;
             currentHealthPoints = Mathf.Clamp(currentHealthPoints, 0, healthPointsMax);
-            RaiseOnHealthUpdatedEvent();
+            UpdateHealth();
 
             if (currentHealthPoints <= 0)
                 onEntityDead?.Invoke(entityController);
@@ -52,10 +52,10 @@ namespace Game.Gameplay
         {
             currentHealthPoints += healthPointsToAdd;
             currentHealthPoints = Mathf.Clamp(currentHealthPoints, 0, healthPointsMax);
-            RaiseOnHealthUpdatedEvent();
+            UpdateHealth();
         }
 
-        public void RaiseOnHealthUpdatedEvent()
+        public void UpdateHealth()
         {
             onHealthUpdated?.Invoke(currentHealthPoints, healthPointsMax);
         }

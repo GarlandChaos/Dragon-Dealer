@@ -41,8 +41,16 @@ namespace Game.UI
             cardDropController.gameObject.SetActive(true);
         }
 
+        public void SetHealthTextSetter(TextSetter healthTextSetter)
+        {
+            this.healthTextSetter = healthTextSetter;
+            entityController.HealthController.UpdateHealth();
+        }
+
         public void OnHealthUpdated(int currentHealthPoints, int healthPointsMax)
         {
+            if (healthTextSetter == null) return;
+
             string healthString = currentHealthPoints.ToString() + healthDisplayDivider + healthPointsMax;
             healthTextSetter.SetText(healthString);
         }

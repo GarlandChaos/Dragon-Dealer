@@ -7,6 +7,12 @@ namespace Game.UI
 {
     public class WinScreen : APanelScreenController
     {
+        //Object data
+        private const string scoreTextLabel = "Your score: ";
+
+        [Header("Text Setters")]
+        [SerializeField] private TextSetter scoreTextSetter = null;
+
         [Header("Buttons")]
         [SerializeField] private CallbackButton nextLevelButton = null;
         [SerializeField] private CallbackButton mainMenuButton = null;
@@ -21,7 +27,10 @@ namespace Game.UI
         {
             bool showNextLevelButton = LevelManager.Instance.HasLevelsRemaining;
             nextLevelButton.gameObject.SetActive(showNextLevelButton);
-            
+
+            int score = ScoreManager.Instance.GetLevelScore(LevelManager.Instance.CurrentLevel);
+            SetScoreText(score);
+
             base.Show(values);
         }
 
@@ -35,6 +44,12 @@ namespace Game.UI
         {
             UIManager.Instance.RequestScreen(ScreenIds.MAIN_MENU_SCREEN, true);
             Hide();
+        }
+
+        private void SetScoreText(int score)
+        {
+            string scoreText = scoreTextLabel + score.ToString();
+            scoreTextSetter.SetText(scoreText);
         }
     }
 }

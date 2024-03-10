@@ -27,8 +27,16 @@ namespace Game.Gameplay.State
             if (cardUsedOnItself)
             {
                 cardUsedOnItself = false;
+
                 Element element = CombatManager.Instance.CurrentCombatPacket.card.element;
-                entityController.SetEntityElement(element);
+                if (entityController.Element != element)
+                    entityController.SetEntityElement(element);
+                else
+                {
+                    int healthPointsToAdd = CombatManager.Instance.CurrentCombatPacket.card.value;
+                    entityController.HealthController.AddHealth(healthPointsToAdd);
+                }
+                
                 CombatManager.Instance.FinishCurrentCombat();
                 return null;
             }

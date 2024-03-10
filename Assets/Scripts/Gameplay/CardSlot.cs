@@ -8,6 +8,7 @@ namespace Game.Gameplay
     {
         [SerializeField] private Transform cardContainer = null;
         [SerializeField] private Image timerImage = null;
+        private CardVisualController cardVisualController = null;
         private float createCardCooldownDuration = 3f;
 
         private void Awake()
@@ -18,15 +19,27 @@ namespace Game.Gameplay
         public void CreateCard()
         {
             Card card = DeckManager.Instance.GetCard();
-            CardVisualController cardVisualController = CardVisualControllerManager.Instance.GetCardVisualController();
+            cardVisualController = CardVisualControllerManager.Instance.GetCardVisualController();
             cardVisualController.Initialize(this, card);
             cardVisualController.transform.SetParent(cardContainer, false);
         }
 
-        public void RemoveCard(CardVisualController cardVisualController)
+        public void RemoveCard(bool createNewCardAfterRemoving = true)
         {
+            if (cardVisualController == null) return;
+
             CardVisualControllerManager.Instance.ReleaseCardVisualController(cardVisualController);
-            StartCoroutine(CreateCardCooldownRoutine());
+            
+            if(createNewCardAfterRemoving)
+                StartCoroutine(CreateCardCooldownRoutine());
+        }
+
+        public void ResetCardSlot()
+        {
+            StopAllCoroutines();
+            timerImage.gameObject.SetActive(false);
+            RemoveCard(false);
+            CreateCard();
         }
 
         private IEnumerator CreateCardCooldownRoutine()

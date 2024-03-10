@@ -9,7 +9,8 @@ namespace Game.UI
     {
         [Header("Self Contained References")]
         [SerializeField] private Transform playerAreaTransform = null;
-        [SerializeField] private Transform enemyAreaTransform = null;
+        [SerializeField] private List<Transform> enemyPositionTransformList = null;
+        [SerializeField] private TextSetter playerHealthTextSetter = null;
 
         public override void Show(params object[] values)
         {
@@ -34,9 +35,13 @@ namespace Game.UI
                 case GameState.MainMenu:
                     break;
                 case GameState.GameRunning:
+
+                    LevelManager.Instance.PlayerController.EntityUIController.SetHealthTextSetter(playerHealthTextSetter);
+
+                    int count = 0;
                     foreach (EntityUIController controller in EntityUIControllerManager.Instance.ActiveEntityUIControllerList)
                     {
-                        controller.transform.SetParent(enemyAreaTransform, false);
+                        controller.transform.SetParent(enemyPositionTransformList[count++], false);
                     }
 
                     LevelManager.Instance.PlayerController.EntityUIController.transform.SetParent(playerAreaTransform, false);
