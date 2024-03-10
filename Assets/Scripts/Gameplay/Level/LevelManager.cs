@@ -44,7 +44,6 @@ namespace Game.Gameplay
             if (playerController == null)
                 playerController = Instantiate(playerControllerPrefab);
 
-            EntityUIControllerManager.Instance.GetPlayerUIController().gameObject.SetActive(true);
             playerController.gameObject.SetActive(true);
             playerController.Initialize();
         }
@@ -56,7 +55,7 @@ namespace Game.Gameplay
             if (levelList[currentLevel].WaveList.Count == 0) return;
 
             waveCount = levelList[currentLevel].WaveList.Count;
-            //Debug.Log("Active enemies count: " + EntityControllerManager.Instance.ActiveEntityControllerCount);
+
             List<WaveUnit> waveUnitList = levelList[currentLevel].WaveList[currentWave].WaveUnitList;
             foreach (WaveUnit waveUnit in waveUnitList)
             {
@@ -68,8 +67,6 @@ namespace Game.Gameplay
                 }
             }
             UIManager.Instance.RequestScreen(ScreenIds.WAVE_TITLE_SCREEN, true);
-            //StartCoroutine(WaitForWaveSpawnCompletionRoutine());
-            //GameManager.Instance.ChangeGameState(GameState.GameRunning);
         }
 
         private void GoToNextWave()
@@ -84,7 +81,6 @@ namespace Game.Gameplay
                 return;
             }
 
-            //Debug.Log("Entered next wave: " + currentWave);
             GameManager.Instance.ChangeGameState(GameState.WaveStart);
         }
 
@@ -95,7 +91,7 @@ namespace Game.Gameplay
 
             if(currentLevel >= levelList.Count) return;
 
-            GameManager.Instance.ChangeGameState(GameState.WaveStart);
+            UIManager.Instance.RequestScreen(ScreenIds.GAMEPLAY_SCREEN, true);
         }
 
         public void ReleaseDeadEnemy(EntityController enemy)
@@ -112,10 +108,7 @@ namespace Game.Gameplay
             switch (gameState)
             {
                 case GameState.NotInitialized:
-                    currentLevel = 0;
-                    currentWave = 0;
-                    break;
-                case GameState.Menu:
+                case GameState.MainMenu:
                     currentLevel = 0;
                     currentWave = 0;
                     break;
@@ -123,28 +116,16 @@ namespace Game.Gameplay
                     InitializeLevel();
                     break;
                 case GameState.GameRunning:
-                    break;
                 case GameState.GamePause:
                     break;
                 case GameState.GameEnd:
                     EntityControllerManager.Instance.ClearEntityControllerList();
+                    EntityUIControllerManager.Instance.ClearEntityUIControllerList();
                     playerController.gameObject.SetActive(false);
                     break;
                 default:
                     break;
             }
-        }
-
-        private IEnumerator WaitForWaveSpawnCompletionRoutine()
-        {
-            WaitForEndOfFrame wait = new WaitForEndOfFrame();
-
-            yield return wait;
-            while (EntityControllerManager.Instance.ActiveEntityControllerCount < levelList[currentLevel].WaveList[currentWave].GetTotalUnitCount())
-            {
-                yield return wait;
-            }
-            GameManager.Instance.ChangeGameState(GameState.GameRunning);
         }
     }
 }

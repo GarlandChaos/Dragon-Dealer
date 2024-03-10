@@ -13,7 +13,7 @@ namespace Game.Gameplay
         private Vector3 dragOffset = Vector3.zero;
         private Card card;
         private ICardDropHandler raycastedDropHandler = null;
-        private DeckVisualController deckVisualController = null; //TEMPORARY, USE EVENTS LATER TO DECOUPLE
+        private CardSlot cardSlot = null;
 
         [Header("Object Data")]
         [SerializeField] private Color grassElementColor = Color.green;
@@ -21,15 +21,19 @@ namespace Game.Gameplay
         [SerializeField] private Color waterElementColor = Color.blue;
 
         [Header("Self Contained References")]
+        [SerializeField] private RectTransform cardRectTransform = null;
         [SerializeField] private Image cardImage = null;
         [SerializeField] private TMP_Text cardValueText = null;
 
-        public void Initialize(DeckVisualController deckVisualController, Card card)
+        public void Initialize(CardSlot cardSlot, Card card)
         {
-            this.deckVisualController = deckVisualController;
+            this.cardSlot = cardSlot;
             this.card = card;
             cardImage.color = GetCardColor(card);
             cardValueText.SetText(card.value.ToString());
+            cardRectTransform.anchoredPosition = Vector2.zero;
+            //cardRectTransform.sizeDelta = Vector2.zero;
+            transform.localScale = Vector3.one;
             StartCoroutine(SetInitialPositionRoutine());
         }
 
@@ -57,7 +61,7 @@ namespace Game.Gameplay
             {
                 raycastedDropHandler.DropCard(LevelManager.Instance.PlayerController, card);
                 raycastedDropHandler.ResetDropHandler();
-                deckVisualController.RemoveCardFromDeck(this);
+                cardSlot.RemoveCard(this);
                 return;
             }
 

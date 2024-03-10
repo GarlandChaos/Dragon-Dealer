@@ -72,7 +72,7 @@ namespace Game.Gameplay.Combat
             {
                 case GameState.NotInitialized:
                     break;
-                case GameState.Menu:
+                case GameState.MainMenu:
                     break;
                 case GameState.WaveStart:
                     combatPacketQueue.Clear();

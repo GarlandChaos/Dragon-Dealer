@@ -29,6 +29,7 @@ namespace Game
         {
             EntityUIController controller = entityUIControllerPool.Pool.Get();
             activeEntityUIControllerList.Add(controller);
+
             return controller;
         }
 

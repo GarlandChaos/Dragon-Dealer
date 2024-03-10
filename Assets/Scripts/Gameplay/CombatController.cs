@@ -60,7 +60,6 @@ namespace Game.Gameplay
 
         private void OnCombatPacketCreated(CombatPacket packet)
         {
-            Debug.Log("Combat packet created on combat controller");
             isChargingAttack = false;
         }
 

@@ -80,9 +80,11 @@ namespace Game.Gameplay
             {
                 case GameState.NotInitialized:
                     stateMachine.Initialize(this, new BaseState());
+                    combatController.StopChargingAttack();
                     break;
-                case GameState.Menu:
+                case GameState.MainMenu:
                     stateMachine.Initialize(this, new BaseState());
+                    combatController.StopChargingAttack();
                     break;
                 case GameState.WaveStart:
                     stateMachine.Initialize(this, new BaseState());
@@ -96,6 +98,7 @@ namespace Game.Gameplay
                     break;
                 case GameState.GameEnd:
                     stateMachine.Initialize(this, new BaseState());
+                    combatController.StopChargingAttack();
                     break;
                 default:
                     break;

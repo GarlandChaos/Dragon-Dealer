@@ -17,7 +17,13 @@ namespace Game.UI
             creditsButton.Initialize(OnCreditsButton);   
             quitButton.Initialize(OnQuitButton);   
         }
-        
+
+        public override void Show(params object[] values)
+        {
+            base.Show(values);
+            GameManager.Instance.ChangeGameState(GameState.MainMenu);
+        }
+
         private void OnPlayButton()
         {
             UIManager.Instance.RequestScreen(ScreenIds.GAMEPLAY_SCREEN, true);

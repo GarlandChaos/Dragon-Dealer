@@ -18,12 +18,14 @@ namespace Game.UI
 
         private void OnRestartLevelButton()
         {
-
+            UIManager.Instance.RequestScreen(ScreenIds.GAMEPLAY_SCREEN, true);
+            Hide();
         }
 
         private void OnMainMenuButton()
         {
             UIManager.Instance.RequestScreen(ScreenIds.MAIN_MENU_SCREEN, true);
+            Hide();
         }
     }
 }

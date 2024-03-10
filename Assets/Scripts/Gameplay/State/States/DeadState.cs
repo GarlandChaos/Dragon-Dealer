@@ -1,3 +1,4 @@
+using Game.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,6 +27,12 @@ namespace Game.Gameplay.State
                 if (!entityController.IsPlayer)
                 {
                     LevelManager.Instance.ReleaseDeadEnemy(entityController);
+                }
+                else
+                {
+                    GameManager.Instance.ChangeGameState(GameState.GameEnd);
+                    UIManager.Instance.RequestScreen(ScreenIds.GAMEPLAY_SCREEN, false);
+                    UIManager.Instance.RequestScreen(ScreenIds.GAME_OVER_SCREEN, true);
                 }
                 return new BaseState();
             }

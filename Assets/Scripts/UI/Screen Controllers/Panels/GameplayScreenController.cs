@@ -31,7 +31,7 @@ namespace Game.UI
             {
                 case GameState.NotInitialized:
                     break;
-                case GameState.Menu:
+                case GameState.MainMenu:
                     break;
                 case GameState.GameRunning:
                     foreach (EntityUIController controller in EntityUIControllerManager.Instance.ActiveEntityUIControllerList)

@@ -28,6 +28,7 @@ namespace Game.UI
         private void OnNextLevelButton()
         {
             LevelManager.Instance.GoToNextLevel();
+            Hide();
         }
 
         private void OnMainMenuButton()

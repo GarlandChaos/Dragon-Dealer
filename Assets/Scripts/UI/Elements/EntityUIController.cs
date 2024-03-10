@@ -24,8 +24,6 @@ namespace Game.UI
 
         public void Initialize(EntityController entityController)
         {
-            gameObject.SetActive(true);
-
             CombatManager.Instance.onCombatPacketCreated += OnCombatPacketCreated;
             CombatManager.Instance.onCurrentCombatFinished += OnCurrentCombatFinished;
 

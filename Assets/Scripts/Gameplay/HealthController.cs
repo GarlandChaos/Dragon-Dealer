@@ -20,16 +20,6 @@ namespace Game.Gameplay
         public int CurrentHealthPoints => currentHealthPoints;
         public bool HasHealthPointsRemaining => currentHealthPoints > 0;
 
-        //private void Start()
-        //{
-        //    LevelManager.Instance.onWaveStarted += RaiseOnHealthUpdatedEvent;
-        //}
-
-        //private void OnDestroy()
-        //{
-        //    LevelManager.Instance.onWaveStarted -= RaiseOnHealthUpdatedEvent;
-        //}
-
         private void OnDisable()
         {
             Delegate[] delegateList = onEntityDead?.GetInvocationList();

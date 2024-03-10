@@ -13,40 +13,20 @@ namespace Game.Gameplay
         [SerializeField] private Transform cardContainerTransform = null;
 
         [Header("External References")]
-        [SerializeField] private CardVisualController cardVisualControllerPrefab = null;
-
-        private List<CardVisualController> cardVisualControllerList = new();
+        [SerializeField] private CardSlot cardSlotPrefab = null;
 
         private void Start()
         {
             SetDeck();
         }
 
-        public void SetDeck()
+        private void SetDeck()
         {
-            if (cardVisualControllerList.Count == deckSize) return;
-
-            while (cardVisualControllerList.Count < deckSize)
+            for(int i = 0; i < deckSize; i++)
             {
-                Card card = DeckManager.Instance.GetCard();
-
-                CardVisualController cardVisualController = Instantiate(cardVisualControllerPrefab, cardContainerTransform, false);
-                cardVisualController.Initialize(this, card);
-                cardVisualControllerList.Add(cardVisualController);
+                CardSlot cardSlot = Instantiate(cardSlotPrefab, cardContainerTransform, false);
+                cardSlot.CreateCard();
             }
-        }
-
-        public void RemoveCardFromDeck(CardVisualController cardVisualController)
-        {
-            cardVisualControllerList.Remove(cardVisualController);
-            Destroy(cardVisualController.gameObject); //TODO: use object pool instead of destroying
-            StartCoroutine(SetDeckRoutine());
-        }
-
-        private IEnumerator SetDeckRoutine()
-        {
-            yield return new WaitForSecondsRealtime(3f);
-            SetDeck();
         }
     }
 }

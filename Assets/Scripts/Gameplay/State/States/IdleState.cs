@@ -14,7 +14,6 @@ namespace Game.Gameplay.State
         public override void Enter(EntityController entityController)
         {
             base.Enter(entityController);
-            Debug.Log("Entered idle state");
             CombatManager.Instance.onCombatPacketCreated += OnCombatPacketCreated;
             entityController.HealthController.onEntityDead += OnEntityDead;
             //Trigger idle animation
@@ -49,7 +48,6 @@ namespace Game.Gameplay.State
 
         private void OnCombatPacketCreated(CombatPacket combatPacket)
         {
-            Debug.Log("Combat packet created. Attacker: " + combatPacket.attacker + " / Target: " + combatPacket.target);
             if (combatPacket.attacker != entityController) return;
 
             if (combatPacket.attacker == combatPacket.target)

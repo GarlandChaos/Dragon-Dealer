@@ -428,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckSize: 3
   cardContainerTransform: {fileID: 827440242877838576}
-  cardVisualControllerPrefab: {fileID: 7033158010647335114, guid: 273e55c364f8c174c85edcaf5b682f40, type: 3}
+  cardSlotPrefab: {fileID: 2388670260359727545, guid: e1ac05dbd3419a64080f2bf84eeab30e, type: 3}
 --- !u!1 &8224516002040112441
 GameObject:
   m_ObjectHideFlags: 0
