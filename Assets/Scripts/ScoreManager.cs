@@ -1,10 +1,25 @@
 using Game.Gameplay;
+using Game.Utility.SaveLoad;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
 {
+    [Serializable]
+    public class SaveScoreData
+    {
+        public LevelScoreData[] scoreArray;
+    }
+
+    [Serializable]
+    public class LevelScoreData
+    {
+        public int level = 0;
+        public int score = 0;
+    }
+
     public class ScoreManager : ASingleton<ScoreManager>
     {
         private Dictionary<int, int> scoreDictionary = new();
@@ -29,7 +44,17 @@ namespace Game
 
         public void SaveScore()
         {
+            List<LevelScoreData> levelScoreDataList = new();
+            foreach(KeyValuePair<int, int> kvp in scoreDictionary)
+            {
+                LevelScoreData levelScoreData = new LevelScoreData() { level = kvp.Key, score = kvp.Value };
+                levelScoreDataList.Add(levelScoreData);
+            }
+            SaveScoreData saveScoreData = new SaveScoreData() { scoreArray = levelScoreDataList.ToArray() };
+            string json = JsonUtility.ToJson(saveScoreData);
+            Debug.Log("json: " + json);
 
+            SaveLoadAPI.Save(json);
         }
 
         public int GetLevelScore(int level)

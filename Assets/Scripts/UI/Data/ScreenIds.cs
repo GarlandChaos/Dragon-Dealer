@@ -8,7 +8,7 @@ namespace Game.UI
         public const string WIN_SCREEN = "Win Screen";
         public const string GAME_OVER_SCREEN = "Game Over Screen";
         public const string PAUSE_SCREEN = "Pause Screen";
-        public const string POP_UP_SCREEN = "Pop Up Screen";
         public const string WAVE_TITLE_SCREEN = "Wave Title Screen";
+        public const string CREDITS_SCREEN = "Credits Screen";
     }
 }

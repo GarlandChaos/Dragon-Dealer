@@ -20,4 +20,5 @@ MonoBehaviour:
   - {fileID: 8701407177334874275, guid: 7ff205e7e20a80a42a88becd6db2aa7a, type: 3}
   - {fileID: 3995185861712575710, guid: 0fb04f45b415c0349bc366e4bf452a7e, type: 3}
   - {fileID: 3995185861712575710, guid: e0a86ac17c4d80347be143fb24554557, type: 3}
+  - {fileID: 3995185861712575710, guid: a05d62d6690e3d24a8c297cb06b5835c, type: 3}
   hideScreensUponInstantiation: 1

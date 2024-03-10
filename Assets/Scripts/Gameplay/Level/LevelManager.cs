@@ -20,6 +20,7 @@ namespace Game.Gameplay
         //Properties
         public EntityController PlayerController => playerController;
         public bool HasLevelsRemaining => currentLevel + 1 < levelList.Count;
+        public int NumberOfLevels => levelList.Count;
         public int CurrentLevel => currentLevel;
         public int CurrentWave => currentWave;
 
@@ -104,6 +105,13 @@ namespace Game.Gameplay
                 GoToNextWave();
         }
 
+        public void SetCurrentLevel(int level)
+        {
+            if (level >= levelList.Count || level < 0) return;
+
+            currentLevel = level;
+        }
+
         private void OnGameStateChanged(GameState gameState)
         {
             switch (gameState)
@@ -112,6 +120,10 @@ namespace Game.Gameplay
                 case GameState.MainMenu:
                     currentLevel = 0;
                     currentWave = 0;
+                    EntityControllerManager.Instance.ClearEntityControllerList();
+                    EntityUIControllerManager.Instance.ClearEntityUIControllerList();
+                    if(playerController != null) 
+                        playerController.gameObject.SetActive(false);
                     break;
                 case GameState.WaveStart:
                     InitializeLevel();

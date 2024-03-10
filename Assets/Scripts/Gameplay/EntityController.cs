@@ -48,6 +48,7 @@ namespace Game.Gameplay
 
             gameObject.name = isPlayer ? "Player Controller" : "Enemy Controller " + EntityControllerManager.Instance.ActiveEntityControllerCount.ToString();
 
+            movementController.Reset();
             healthController.Initialize(this);
             combatController.Initialize(this);
             stateMachine.Initialize(this, new BaseState());
@@ -79,16 +80,15 @@ namespace Game.Gameplay
             switch (gameState)
             {
                 case GameState.NotInitialized:
-                    stateMachine.Initialize(this, new BaseState());
-                    combatController.StopChargingAttack();
-                    break;
                 case GameState.MainMenu:
                     stateMachine.Initialize(this, new BaseState());
                     combatController.StopChargingAttack();
+                    movementController.Reset();
                     break;
                 case GameState.WaveStart:
                     stateMachine.Initialize(this, new BaseState());
                     combatController.StopChargingAttack();
+                    movementController.Reset();
                     break;
                 case GameState.GameRunning:
                     stateMachine.Initialize(this, new IdleState());
@@ -99,6 +99,7 @@ namespace Game.Gameplay
                 case GameState.GameEnd:
                     stateMachine.Initialize(this, new BaseState());
                     combatController.StopChargingAttack();
+                    movementController.Reset();
                     break;
                 default:
                     break;

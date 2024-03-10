@@ -11,6 +11,7 @@ namespace Game.Gameplay
         [SerializeField] private Transform body = null;
         [SerializeField] private float moveDuration = 0.5f;
         private Vector3 initialPosition = Vector3.zero;
+        private Tween moveTween = null;
 
         public void SetInitialPosition(Vector3 position)
         {
@@ -19,7 +20,7 @@ namespace Game.Gameplay
 
         public void Move(Vector3 positionToMove, Action onCompleteCallback = null)
         {
-            body.DOMove(positionToMove, moveDuration)
+            moveTween = body.DOMove(positionToMove, moveDuration)
                 .OnComplete(() =>
                 {
                     onCompleteCallback?.Invoke();
@@ -29,6 +30,12 @@ namespace Game.Gameplay
         public void MoveToInitialPosition(Action onCompleteCallback = null)
         {
             Move(initialPosition, onCompleteCallback);
+        }
+
+        public void Reset()
+        {
+            moveTween.Kill();
+            body.transform.position = initialPosition;
         }
     }
 }
