@@ -18,5 +18,16 @@ namespace Game.Gameplay
 
         //Properties
         public List<WaveUnit> WaveUnitList => waveUnitList;
+
+        public int GetTotalUnitCount()
+        {
+            int totalUnitCount = 0;
+            foreach(WaveUnit waveUnit in waveUnitList)
+            {
+                totalUnitCount += waveUnit.numberOfEnemies;
+            }
+
+            return totalUnitCount;
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Gameplay.State
 {
-    public class RunToAttackState : AState
+    public class RunToAttackState : BaseState
     {
         private bool finishedRun = false;
 

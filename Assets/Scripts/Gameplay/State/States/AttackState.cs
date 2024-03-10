@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Gameplay.State
 {
-    public class AttackState : AState
+    public class AttackState : BaseState
     {
         private float attackTimer = 0f;
         private float attackDuration = 0.5f;

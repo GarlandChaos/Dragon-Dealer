@@ -30,12 +30,20 @@ namespace Game.Gameplay.Combat
 
         private void Start()
         {
-            LevelManager.Instance.onLevelStarted += OnLevelStarted;
+            GameManager.Instance.onGameStateChanged += OnGameStateChanged;
         }
 
         private void OnDestroy()
         {
-            LevelManager.Instance.onLevelStarted -= OnLevelStarted;
+            GameManager.Instance.onGameStateChanged += OnGameStateChanged;
+        }
+
+        private void Update()
+        {
+            //if(combatPacketQueue.Count > 0)
+            //{
+            //    Debug.Log("Has combat packet. Combat packet count: " + combatPacketQueue.Count);
+            //}
         }
 
         public void CreateCombatPacket(EntityController attacker, EntityController target, Card card)
@@ -58,9 +66,27 @@ namespace Game.Gameplay.Combat
                 onCombatPacketCreated?.Invoke(combatPacketQueue.Peek());
         }
 
-        private void OnLevelStarted()
+        private void OnGameStateChanged(GameState gameState)
         {
-            combatPacketQueue.Clear();
+            switch (gameState)
+            {
+                case GameState.NotInitialized:
+                    break;
+                case GameState.Menu:
+                    break;
+                case GameState.WaveStart:
+                    combatPacketQueue.Clear();
+                    break;
+                case GameState.GameRunning:
+                    break;
+                case GameState.GamePause:
+                    break;
+                case GameState.GameEnd:
+                    combatPacketQueue.Clear();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

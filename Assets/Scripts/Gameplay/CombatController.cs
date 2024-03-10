@@ -11,6 +11,7 @@ namespace Game.Gameplay
     {
         private EntityController entityController = null;
 
+        private bool initialized = false;
         private bool isChargingAttack = true;
         private float attackTimer = 0f;
         [SerializeField] private float waitForAttackDuration = 0f;
@@ -25,6 +26,8 @@ namespace Game.Gameplay
 
         private void Update()
         {
+            if (!initialized) return;
+
             if (entityController.IsPlayer) return;
 
             if (!isChargingAttack) return;
@@ -32,12 +35,11 @@ namespace Game.Gameplay
             attackTimer += Time.deltaTime;
 
             onAttackTimerUpdated?.Invoke(attackTimer, waitForAttackDuration);
-
-            if(attackTimer >= waitForAttackDuration)
+            if (attackTimer >= waitForAttackDuration)
             {
                 StopChargingAttack();
                 Card attackCard = new Card(entityController.Element, UnityEngine.Random.Range(5, 26));
-                CombatManager.Instance.CreateCombatPacket(entityController, GameManager.Instance.PlayerController, attackCard);
+                CombatManager.Instance.CreateCombatPacket(entityController, LevelManager.Instance.PlayerController, attackCard);
             }
         }
 
@@ -47,6 +49,8 @@ namespace Game.Gameplay
 
             isChargingAttack = true;
             attackTimer = 0f;
+
+            initialized = true;
         }
 
         private void OnCurrentCombatFinished()
@@ -56,6 +60,7 @@ namespace Game.Gameplay
 
         private void OnCombatPacketCreated(CombatPacket packet)
         {
+            Debug.Log("Combat packet created on combat controller");
             isChargingAttack = false;
         }
 

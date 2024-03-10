@@ -55,7 +55,7 @@ namespace Game.Gameplay
         {
             if (raycastedDropHandler != null)
             {
-                raycastedDropHandler.DropCard(GameManager.Instance.PlayerController, card);
+                raycastedDropHandler.DropCard(LevelManager.Instance.PlayerController, card);
                 raycastedDropHandler.ResetDropHandler();
                 deckVisualController.RemoveCardFromDeck(this);
                 return;

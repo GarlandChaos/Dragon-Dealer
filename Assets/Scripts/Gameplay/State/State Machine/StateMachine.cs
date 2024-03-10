@@ -28,6 +28,7 @@ namespace Game.Gameplay.State
         {
             if (currentState == null) return;
 
+            //Debug.Log(gameObject.transform.parent.name + " is executing state " + currentState.ToString());
             IState state = currentState.Execute();
             if (state != null && state != currentState)
             {

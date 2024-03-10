@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Gameplay.State
 {
-    public class DeadState : AState
+    public class DeadState : BaseState
     {
         private float destroyTimer = 0f;
         private float destroyTimerDuration = 0f;
@@ -14,6 +14,7 @@ namespace Game.Gameplay.State
         {
             base.Enter(entityController);
             //Trigger dead animation
+            entityController.EntityUIController.Deactivate();
         }
 
         public override IState Execute()
@@ -26,7 +27,7 @@ namespace Game.Gameplay.State
                 {
                     LevelManager.Instance.ReleaseDeadEnemy(entityController);
                 }
-                return new IdleState();
+                return new BaseState();
             }
             return null;
         }

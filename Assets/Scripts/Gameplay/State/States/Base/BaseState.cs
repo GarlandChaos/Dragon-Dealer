@@ -1,6 +1,6 @@
 namespace Game.Gameplay.State
 {
-    public abstract class AState : IState
+    public class BaseState : IState
     {
         protected EntityController entityController = null;
         protected bool isPhysicsState = false;

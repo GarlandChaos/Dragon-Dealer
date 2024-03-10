@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Game.Gameplay;
 using Game.Gameplay.Combat;
+using System.Threading.Tasks;
+using System;
 
 namespace Game.UI
 {
@@ -11,38 +13,29 @@ namespace Game.UI
     {
         private EntityController entityController = null;
         private const string healthDisplayDivider = "/";
+        private Vector3 initialBodyReferencePosition = Vector3.zero;
 
         [SerializeField] private RectTransform bodyPositionReferenceRectTransform = null;
         [SerializeField] private CardDropController cardDropController = null;
         [SerializeField] private TextSetter healthTextSetter = null;
         [SerializeField] private Image attackTimerImage = null;
 
-        private void Start()
-        {
-            CombatManager.Instance.onCombatPacketCreated += OnCombatPacketCreated;
-            CombatManager.Instance.onCurrentCombatFinished += OnCurrentCombatFinished;
-        }
-
-        private void OnDestroy()
-        {
-            CombatManager.Instance.onCombatPacketCreated -= OnCombatPacketCreated;
-            CombatManager.Instance.onCurrentCombatFinished -= OnCurrentCombatFinished;
-
-            if (entityController == null) return;
-
-            entityController.HealthController.onHealthUpdated -= OnHealthUpdated;
-            entityController.CombatController.onAttackTimerUpdated -= OnAttackTimerUpdated;
-        }
+        public Action<EntityUIController> onDeactivateEntityUIController = null;
 
         public void Initialize(EntityController entityController)
         {
-            this.entityController = entityController;
+            gameObject.SetActive(true);
 
+            CombatManager.Instance.onCombatPacketCreated += OnCombatPacketCreated;
+            CombatManager.Instance.onCurrentCombatFinished += OnCurrentCombatFinished;
+
+            this.entityController = entityController;
             entityController.HealthController.onHealthUpdated += OnHealthUpdated;
             entityController.CombatController.onAttackTimerUpdated += OnAttackTimerUpdated;
 
             cardDropController.Initialize(entityController);
 
+            initialBodyReferencePosition = bodyPositionReferenceRectTransform.position;
             SetEntityBodyPosition();
 
             bool isPlayer = entityController.IsPlayer;
@@ -81,16 +74,43 @@ namespace Game.UI
 
         public void SetEntityBodyPosition()
         {
-            StartCoroutine(SetEntityBodyPositionRoutine(entityController));
+            StartCoroutine(SetEntityBodyPositionRoutine());
         }
 
-        private IEnumerator SetEntityBodyPositionRoutine(EntityController entityController)
+        private IEnumerator SetEntityBodyPositionRoutine()
         {
-            yield return new WaitForEndOfFrame();
+            WaitForEndOfFrame wait = new WaitForEndOfFrame();
+            yield return wait;
 
             Vector3 bodyPosition = bodyPositionReferenceRectTransform.position;
+            while (bodyPosition == initialBodyReferencePosition)
+            {
+                yield return wait;
+                bodyPosition = bodyPositionReferenceRectTransform.position;
+            }
             entityController.transform.position = bodyPosition;
             entityController.MovementController.SetInitialPosition(bodyPosition);
+        }
+
+        public void Deactivate()
+        {
+            onDeactivateEntityUIController?.Invoke(this);
+
+            CombatManager.Instance.onCombatPacketCreated -= OnCombatPacketCreated;
+            CombatManager.Instance.onCurrentCombatFinished -= OnCurrentCombatFinished;
+
+            if (entityController == null) return;
+
+            entityController.HealthController.onHealthUpdated -= OnHealthUpdated;
+            entityController.CombatController.onAttackTimerUpdated -= OnAttackTimerUpdated;
+
+            Delegate[] delegateList = onDeactivateEntityUIController?.GetInvocationList();
+            if (delegateList == null) return;
+
+            foreach (Delegate dlgt in delegateList)
+            {
+                onDeactivateEntityUIController -= (Action<EntityUIController>)dlgt;
+            }
         }
     }
 }
