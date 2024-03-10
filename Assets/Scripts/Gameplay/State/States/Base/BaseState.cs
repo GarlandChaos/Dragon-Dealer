@@ -8,6 +8,9 @@ namespace Game.Gameplay.State
         public virtual void Enter(EntityController entityController)
         {
             this.entityController = entityController;
+            entityController.AnimatorController.DisableRunState();
+            entityController.AnimatorController.DisableAttackState();
+            entityController.AnimatorController.EnableIdleState();
         }
 
         public virtual IState Execute()

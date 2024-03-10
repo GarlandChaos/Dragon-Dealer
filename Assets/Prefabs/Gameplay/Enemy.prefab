@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2157647813218611652, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2166550738037698698, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: healthPointsMax
       value: 5

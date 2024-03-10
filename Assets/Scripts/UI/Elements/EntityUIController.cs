@@ -22,6 +22,9 @@ namespace Game.UI
 
         public Action<EntityUIController> onDeactivateEntityUIController = null;
 
+        //Properties
+        public EntityController EntityController => entityController;
+
         public void Initialize(EntityController entityController)
         {
             CombatManager.Instance.onCombatPacketCreated += OnCombatPacketCreated;

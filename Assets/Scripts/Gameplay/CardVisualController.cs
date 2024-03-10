@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Game.Data;
 
 namespace Game.Gameplay
 {
@@ -16,10 +17,10 @@ namespace Game.Gameplay
         private CardSlot cardSlot = null;
         private float dragScale = 0.3f;
 
-        [Header("Object Data")]
-        [SerializeField] private Color grassElementColor = Color.green;
-        [SerializeField] private Color fireElementColor = Color.red;
-        [SerializeField] private Color waterElementColor = Color.blue;
+        [Header("External Data")]
+        [SerializeField] private ElementVisualData grassVisualData = null;
+        [SerializeField] private ElementVisualData fireVisualData = null;
+        [SerializeField] private ElementVisualData waterVisualData = null;
 
         [Header("Self Contained References")]
         [SerializeField] private RectTransform cardRectTransform = null;
@@ -30,22 +31,32 @@ namespace Game.Gameplay
         {
             this.cardSlot = cardSlot;
             this.card = card;
-            cardImage.color = GetCardColor(card);
+            cardImage.sprite = GetCardSprite(card);
             cardValueText.SetText(card.value.ToString());
             cardRectTransform.anchoredPosition = Vector2.zero;
-            //cardRectTransform.sizeDelta = Vector2.zero;
             transform.localScale = Vector3.one;
             StartCoroutine(SetInitialPositionRoutine());
+        }
+
+        public Sprite GetCardSprite(Card card)
+        {
+            return card.element switch
+            {
+                Element.GRASS => grassVisualData.CardSprite,
+                Element.FIRE => fireVisualData.CardSprite,
+                Element.WATER => waterVisualData.CardSprite,
+                _ => grassVisualData.CardSprite
+            };
         }
 
         public Color GetCardColor(Card card)
         {
             return card.element switch
             {
-                Element.GRASS => grassElementColor,
-                Element.FIRE => fireElementColor,
-                Element.WATER => waterElementColor,
-                _ => grassElementColor
+                Element.GRASS => grassVisualData.Color,
+                Element.FIRE => fireVisualData.Color,
+                Element.WATER => waterVisualData.Color,
+                _ => grassVisualData.Color
             };
         }
 

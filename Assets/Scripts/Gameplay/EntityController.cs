@@ -19,6 +19,7 @@ namespace Game.Gameplay
         [SerializeField] private HealthController healthController = null;
         [SerializeField] private MovementController movementController = null;
         [SerializeField] private CombatController combatController = null;
+        [SerializeField] private EntityAnimatorController animatorController = null;
         private EntityUIController entityUIController = null;
 
         public Element Element => element;
@@ -27,6 +28,7 @@ namespace Game.Gameplay
         public HealthController HealthController => healthController;
         public MovementController MovementController => movementController;
         public CombatController CombatController => combatController;
+        public EntityAnimatorController AnimatorController => animatorController;
         public EntityUIController EntityUIController => entityUIController;
 
         private void Start()

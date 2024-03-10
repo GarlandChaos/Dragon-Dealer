@@ -12,7 +12,7 @@ namespace Game.Gameplay.State
         public override void Enter(EntityController entityController)
         {
             base.Enter(entityController);
-            //Trigger run animation
+            entityController.AnimatorController.EnableRunState();
 
             entityController.MovementController.MoveToInitialPosition(OnCompleteRunCallback);
         }
@@ -27,6 +27,7 @@ namespace Game.Gameplay.State
 
         public override void Exit()
         {
+            entityController.AnimatorController.DisableRunState();
             entityController.CombatController.ChargeAttack();
             CombatManager.Instance.FinishCurrentCombat();
         }

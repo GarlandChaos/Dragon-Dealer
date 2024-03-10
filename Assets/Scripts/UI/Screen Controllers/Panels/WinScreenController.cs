@@ -8,7 +8,7 @@ namespace Game.UI
     public class WinScreen : APanelScreenController
     {
         //Object data
-        private const string scoreTextLabel = "Your score: ";
+        private const string scoreTextLabel = "Pontuação: ";
 
         [Header("Text Setters")]
         [SerializeField] private TextSetter scoreTextSetter = null;

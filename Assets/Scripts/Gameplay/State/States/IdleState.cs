@@ -16,7 +16,7 @@ namespace Game.Gameplay.State
             base.Enter(entityController);
             CombatManager.Instance.onCombatPacketCreated += OnCombatPacketCreated;
             entityController.HealthController.onEntityDead += OnEntityDead;
-            //Trigger idle animation
+            entityController.AnimatorController.EnableIdleState();
         }
 
         public override IState Execute()
@@ -49,6 +49,7 @@ namespace Game.Gameplay.State
 
         public override void Exit()
         {
+            entityController.AnimatorController.DisableIdleState();
             entityController.CombatController.StopChargingAttack();
             CombatManager.Instance.onCombatPacketCreated -= OnCombatPacketCreated;
             entityController.HealthController.onEntityDead -= OnEntityDead;

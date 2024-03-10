@@ -9,12 +9,14 @@ namespace Game.UI
         [SerializeField] private CallbackButton unpauseButton = null;
         [SerializeField] private CallbackButton restartLevelButton = null;
         [SerializeField] private CallbackButton mainMenuButton = null;
+        [SerializeField] private CallbackButton closeButton = null;
 
         private void Awake()
         {
             unpauseButton.Initialize(OnUnpauseButton);
             restartLevelButton.Initialize(OnRestartLevelButton);
             mainMenuButton.Initialize(OnMainMenuButton);
+            closeButton.Initialize(OnUnpauseButton);
         }
 
         private void OnUnpauseButton()

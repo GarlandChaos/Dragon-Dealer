@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screens:
   - {fileID: 3582958169746297720, guid: 85e4cbb9b67aa4f41b2b1efefb103e01, type: 3}
+  - {fileID: 3995185861712575710, guid: a05d62d6690e3d24a8c297cb06b5835c, type: 3}
+  - {fileID: 3995185861712575710, guid: b51ab5fd0b7bc3e4189885fd4a795159, type: 3}
   - {fileID: 7265625427751058881, guid: f4897f81f437c8b4b9018fc7a6c7e1ae, type: 3}
+  - {fileID: 3995185861712575710, guid: e0a86ac17c4d80347be143fb24554557, type: 3}
   - {fileID: 3582958169746297720, guid: d781f78b3875a0f4fb4cbffebd10e4c2, type: 3}
+  - {fileID: 3995185861712575710, guid: 0fb04f45b415c0349bc366e4bf452a7e, type: 3}
   - {fileID: 8701407177334874275, guid: f251966b4575292408869370737da211, type: 3}
   - {fileID: 8701407177334874275, guid: 7ff205e7e20a80a42a88becd6db2aa7a, type: 3}
-  - {fileID: 3995185861712575710, guid: 0fb04f45b415c0349bc366e4bf452a7e, type: 3}
-  - {fileID: 3995185861712575710, guid: e0a86ac17c4d80347be143fb24554557, type: 3}
-  - {fileID: 3995185861712575710, guid: a05d62d6690e3d24a8c297cb06b5835c, type: 3}
   hideScreensUponInstantiation: 1

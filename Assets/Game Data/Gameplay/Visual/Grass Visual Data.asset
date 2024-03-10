@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b8cf7a79f55834eb4c4fb26093e5d0, type: 3}
+  m_Name: Grass Visual Data
+  m_EditorClassIdentifier: 
+  element: 1
+  cardSprite: {fileID: 21300000, guid: 760d0c015ec6f144783a487e237864a5, type: 3}
+  chargeAttackTimerSprite: {fileID: 21300000, guid: 2821540f7e8fc4c41a8b5823db5699f3, type: 3}
+  healthIconSprite: {fileID: 21300000, guid: 356802178099cb34fab9395341005c08, type: 3}
+  color: {r: 0.32156864, g: 0.7372549, b: 0.5372549, a: 1}
