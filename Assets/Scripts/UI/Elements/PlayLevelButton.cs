@@ -32,6 +32,15 @@ namespace Game.UI
 
         private void OnPlayLevelButton()
         {
+            if (!GameManager.Instance.hasShownTutorialScreen)
+            {
+                GameManager.Instance.hasShownTutorialScreen = true;
+                Action callback = OnPlayLevelButton;
+                UIManager.Instance.RequestScreen(ScreenIds.TUTORIAL_SCREEN, true, null, callback);
+                onPlayLevelCallback?.Invoke();
+                return;
+            }
+
             LevelManager.Instance.SetCurrentLevel(level);
             UIManager.Instance.RequestScreen(ScreenIds.GAMEPLAY_SCREEN, true);
 

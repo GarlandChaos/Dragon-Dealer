@@ -16,4 +16,12 @@ MonoBehaviour:
   cardSprite: {fileID: 21300000, guid: 40f6169fee5a01c42904d72b4dd365b6, type: 3}
   chargeAttackTimerSprite: {fileID: 21300000, guid: 83a1add5f6c6acf4fb245f2e1f442c39, type: 3}
   healthIconSprite: {fileID: 21300000, guid: f0fc3b56e44faf546801f7dcbed2ee59, type: 3}
+  playerAnimationClips:
+    Idle: {fileID: 7400000, guid: f75c63de8d1eed3429343b76e57ea28a, type: 2}
+    Run: {fileID: 7400000, guid: 3af3e5135506ed242b3e95fab6ed6bf6, type: 2}
+    Attack: {fileID: 7400000, guid: c3b918d37326c4b43a02a761ffc6e853, type: 2}
+  enemyAnimationClips:
+    Idle: {fileID: 7400000, guid: 32fb23b6c9f1b414fb3218f3be4441a8, type: 2}
+    Run: {fileID: 7400000, guid: 1f7e6c06b7c56ed429e7ad92ea346acc, type: 2}
+    Attack: {fileID: 7400000, guid: 151ccb02789db7645854d448b519bed3, type: 2}
   color: {r: 0.38823533, g: 0.5568628, b: 0.85098046, a: 1}

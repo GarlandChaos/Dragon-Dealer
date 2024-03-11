@@ -14,11 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2157647813218611652, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2157647813218611652, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1900114795, guid: f08a6073320761b4bb771f9aba760a25, type: 3}
     - target: {fileID: 2166550738037698698, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: healthPointsMax
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3824092844164808619, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: useAttackTimer
@@ -124,6 +128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6033617266668160216, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ccb7f54794361164baa2267745a0b51d, type: 2}
     - target: {fileID: 7084224150334225129, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: m_AnchorMax.x
       value: -0.1

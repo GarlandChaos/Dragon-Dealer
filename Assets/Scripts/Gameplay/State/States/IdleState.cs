@@ -49,10 +49,10 @@ namespace Game.Gameplay.State
 
         public override void Exit()
         {
-            entityController.AnimatorController.DisableIdleState();
             entityController.CombatController.StopChargingAttack();
             CombatManager.Instance.onCombatPacketCreated -= OnCombatPacketCreated;
             entityController.HealthController.onEntityDead -= OnEntityDead;
+            entityController.AnimatorController.DisableIdleState();
         }
 
         private void OnCombatPacketCreated(CombatPacket combatPacket)

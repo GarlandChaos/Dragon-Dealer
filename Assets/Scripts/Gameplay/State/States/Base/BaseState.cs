@@ -10,7 +10,7 @@ namespace Game.Gameplay.State
             this.entityController = entityController;
             entityController.AnimatorController.DisableRunState();
             entityController.AnimatorController.DisableAttackState();
-            entityController.AnimatorController.EnableIdleState();
+            entityController.AnimatorController.DisableIdleState();
         }
 
         public virtual IState Execute()

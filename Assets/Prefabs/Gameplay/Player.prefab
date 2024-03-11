@@ -51,12 +51,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  bodySpriteRenderer: {fileID: 2157647813218611652}
   stateMachine: {fileID: 8524273538835622919}
   healthController: {fileID: 2166550738037698698}
   movementController: {fileID: 7323494233177767959}
   combatController: {fileID: 3824092844164808619}
   animatorController: {fileID: 4253694813356961687}
+  grassVisualData: {fileID: 11400000, guid: f99f9e04940c52640bcf441e13c67335, type: 2}
+  fireVisualData: {fileID: 11400000, guid: 68d861b1519281341a8dce903b88ea97, type: 2}
+  waterVisualData: {fileID: 11400000, guid: 9662fce37eea52c43aadbd1896ba14ae, type: 2}
 --- !u!1 &1950498530180830957
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +205,7 @@ GameObject:
   - component: {fileID: 1002310165323390083}
   - component: {fileID: 2157647813218611652}
   - component: {fileID: 6033617266668160216}
+  - component: {fileID: 4578796053584597662}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -298,6 +301,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4578796053584597662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387633994253354254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead1987590bef3a47bff4206850bda8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityController: {fileID: 7097226480934724835}
 --- !u!1 &8052534929625345580
 GameObject:
   m_ObjectHideFlags: 0

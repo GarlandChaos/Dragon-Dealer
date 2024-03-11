@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Game.Gameplay;
 
@@ -12,6 +10,8 @@ namespace Game.Data
         [SerializeField] private Sprite cardSprite = null;
         [SerializeField] private Sprite chargeAttackTimerSprite = null;
         [SerializeField] private Sprite healthIconSprite = null;
+        [SerializeField] private EntityAnimationClips playerAnimationClips = null;
+        [SerializeField] private EntityAnimationClips enemyAnimationClips = null;
         [SerializeField] private Color color = Color.white;
 
         //Properties
@@ -19,6 +19,8 @@ namespace Game.Data
         public Sprite CardSprite => cardSprite;
         public Sprite ChargeAttackTimerSprite => chargeAttackTimerSprite;
         public Sprite HealthIconSprite => healthIconSprite;
+        public EntityAnimationClips PlayerAnimationClips => playerAnimationClips;
+        public EntityAnimationClips EnemyAnimationClips => enemyAnimationClips;
         public Color Color => color;
     }
 }

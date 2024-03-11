@@ -1,4 +1,6 @@
+using CartoonFX;
 using DG.Tweening;
+using Game.Audio;
 using Game.Gameplay.Combat;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,23 +10,23 @@ namespace Game.Gameplay.State
 {
     public class AttackState : BaseState
     {
-        private float attackTimer = 0f;
-        private float attackDuration = 0.5f;
-
         public override void Enter(EntityController entityController)
         {
             base.Enter(entityController);
-            //Trigger attack animation
+            entityController.AnimatorController.EnableAttackState();
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.HitAudioClip);
         }
 
         public override IState Execute()
         {
-            attackTimer += Time.deltaTime;
-
-            if(attackTimer >= attackDuration)
+            if(entityController.CombatController.HasFinishedAttack)
             {
                 Card card = CombatManager.Instance.CurrentCombatPacket.card;
-                CombatManager.Instance.CurrentCombatPacket.target.HealthController.TakeDamage(card.value);
+                int damage = entityController.CombatController.CalculateDamage(card);
+                CombatManager.Instance.CurrentCombatPacket.target.HealthController.TakeDamage(damage);
+                CFXR_Effect particle = ParticleManager.Instance.GetHitParticle();
+                particle.transform.position = CombatManager.Instance.CurrentCombatPacket.target.transform.position;
+
                 return new RunToIdleState();
             }
 
@@ -33,7 +35,7 @@ namespace Game.Gameplay.State
 
         public override void Exit()
         {
-
+            entityController.AnimatorController.DisableAttackState();
         }
     }
 }

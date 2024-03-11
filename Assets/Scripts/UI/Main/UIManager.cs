@@ -41,7 +41,7 @@ namespace Game.UI
                 GameObject screenInstance = Instantiate(screen);
 
                 if (settings.HideScreensUponInstantiation)
-                    screenInstance.SetActive(screen.name == firstScreen ? true : false);
+                    screenInstance.SetActive(false);
 
                 IScreenController screenController = screenInstance.GetComponent<IScreenController>();
 
@@ -62,6 +62,8 @@ namespace Game.UI
                     }
                 }
             }
+
+            RequestScreen(firstScreen, true);
 
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
