@@ -27,9 +27,7 @@ namespace Game.Gameplay
             if (delegateList == null) return;
 
             foreach(Delegate dlgt in delegateList)
-            {
                 onEntityDead -= (Action<EntityController>) dlgt;
-            }
         }
 
         public void Initialize(EntityController entityController)

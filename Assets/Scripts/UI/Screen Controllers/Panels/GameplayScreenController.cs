@@ -66,7 +66,7 @@ namespace Game.UI
                     break;
                 case GameState.WaveStart:
                     foreach(EnemyHealthElement enemyHealthElement in enemyHealthElementList)
-                        enemyHealthElement.gameObject.SetActive(false);
+                        enemyHealthElement.DisableGraphics();
                     
                     break;
                 case GameState.GameRunning:
@@ -80,7 +80,7 @@ namespace Game.UI
 
                         Sprite healthIconSprite = GetHealthIconSprite(controller.EntityController.Element);
                         enemyHealthElementList[count].SetHealthIconSprite(healthIconSprite);
-                        enemyHealthElementList[count].gameObject.SetActive(true);
+                        enemyHealthElementList[count].EnableGraphics();
 
                         count++;
                     }
@@ -88,7 +88,7 @@ namespace Game.UI
                     if (count < enemyHealthElementList.Count)
                     {
                         for (int i = count; i < enemyHealthElementList.Count; i++)
-                            enemyHealthElementList[i].gameObject.SetActive(false);
+                            enemyHealthElementList[i].DisableGraphics();
                     }
 
                     LevelManager.Instance.PlayerController.EntityUIController.transform.SetParent(playerAreaTransform, false);

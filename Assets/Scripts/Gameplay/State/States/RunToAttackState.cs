@@ -14,7 +14,7 @@ namespace Game.Gameplay.State
             base.Enter(entityController);
             entityController.AnimatorController.EnableRunState();
 
-            Vector3 targetPosition = CombatManager.Instance.CurrentCombatPacket.target.transform.position;
+            Vector3 targetPosition = CombatManager.Instance.CurrentCombatPacket.target.TargetReferenceTransform.position;
             entityController.MovementController.Move(targetPosition, OnCompleteRunCallback);
         }
 

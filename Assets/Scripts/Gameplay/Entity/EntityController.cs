@@ -13,6 +13,8 @@ namespace Game.Gameplay
         private EntityUIController entityUIController = null;
 
         [Header("Self Contained References")]
+        [SerializeField] private Transform targetReferenceTransform = null;
+        [SerializeField] private Transform hitParticleReferenceTransform = null;
         [SerializeField] private StateMachine stateMachine = null;
         [SerializeField] private HealthController healthController = null;
         [SerializeField] private MovementController movementController = null;
@@ -25,8 +27,10 @@ namespace Game.Gameplay
         [SerializeField] private ElementVisualData waterVisualData = null;
 
         //Properties
-        public Element Element => element;
         public bool IsPlayer => isPlayer;
+        public Element Element => element;
+        public Transform TargetReferenceTransform => targetReferenceTransform;
+        public Transform HitParticleReferenceTransform => hitParticleReferenceTransform;
         public HealthController HealthController => healthController;
         public MovementController MovementController => movementController;
         public CombatController CombatController => combatController;

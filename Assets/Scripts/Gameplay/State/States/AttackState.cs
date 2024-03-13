@@ -25,7 +25,7 @@ namespace Game.Gameplay.State
                 int damage = entityController.CombatController.CalculateDamage(card);
                 CombatManager.Instance.CurrentCombatPacket.target.HealthController.TakeDamage(damage);
                 CFXR_Effect particle = ParticleManager.Instance.GetHitParticle();
-                particle.transform.position = CombatManager.Instance.CurrentCombatPacket.target.transform.position;
+                particle.transform.position = CombatManager.Instance.CurrentCombatPacket.target.HitParticleReferenceTransform.position;
 
                 return new RunToIdleState();
             }
