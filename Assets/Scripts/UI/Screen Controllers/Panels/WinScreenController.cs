@@ -2,13 +2,18 @@ using Game.Gameplay;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 namespace Game.UI
 {
     public class WinScreen : APanelScreenController
     {
         //Object data
-        private const string scoreTextLabel = "Pontuação: ";
+        private const string scoreStringKey = "points";
+
+        [Header("Localize String Events")]
+        [SerializeField] LocalizeStringEvent scoreLocalizeStringEvent = null;
 
         [Header("Text Setters")]
         [SerializeField] private TextSetter scoreTextSetter = null;
@@ -48,7 +53,10 @@ namespace Game.UI
 
         private void SetScoreText(int score)
         {
-            string scoreText = scoreTextLabel + score.ToString();
+            StringVariable scoreVariable = scoreLocalizeStringEvent.StringReference[scoreStringKey] as StringVariable;
+            scoreVariable.Value = score.ToString();
+            
+            string scoreText = scoreLocalizeStringEvent.StringReference.GetLocalizedString();
             scoreTextSetter.SetText(scoreText);
         }
     }

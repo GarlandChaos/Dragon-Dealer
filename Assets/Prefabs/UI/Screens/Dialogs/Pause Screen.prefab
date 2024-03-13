@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2374275608690899366}
   - component: {fileID: 1768496573809966571}
   - component: {fileID: 3225575535873404907}
+  - component: {fileID: 5315015242646091639}
   m_Layer: 5
   m_Name: Main Menu Button Text
   m_TagString: Untagged
@@ -186,6 +187,46 @@ MonoBehaviour:
   noTextString: MENU
   characterLimit: 0
   text: {fileID: 1768496573809966571}
+--- !u!114 &5315015242646091639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303039521156012692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:238d10281b3fdd1449cac9f567552667
+    m_TableEntryReference:
+      m_KeyId: 856962883584
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1768496573809966571}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1450691315616732451
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +239,7 @@ GameObject:
   - component: {fileID: 3990495023601610902}
   - component: {fileID: 3452626536745760390}
   - component: {fileID: 7475705169334205983}
+  - component: {fileID: 842651816713541586}
   m_Layer: 5
   m_Name: Restart Level Button Text
   m_TagString: Untagged
@@ -336,6 +378,46 @@ MonoBehaviour:
   noTextString: REINICIAR
   characterLimit: 0
   text: {fileID: 3452626536745760390}
+--- !u!114 &842651816713541586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450691315616732451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:238d10281b3fdd1449cac9f567552667
+    m_TableEntryReference:
+      m_KeyId: 2104646688768
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3452626536745760390}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &2780185538539845567
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +925,7 @@ GameObject:
   - component: {fileID: 3467193421511846939}
   - component: {fileID: 6118362486746940712}
   - component: {fileID: 4247604743810915699}
+  - component: {fileID: 4572637814760759918}
   m_Layer: 5
   m_Name: Unpause Button Text
   m_TagString: Untagged
@@ -981,6 +1064,46 @@ MonoBehaviour:
   noTextString: CONTINUAR
   characterLimit: 0
   text: {fileID: 6118362486746940712}
+--- !u!114 &4572637814760759918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5693178155562087913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:238d10281b3fdd1449cac9f567552667
+    m_TableEntryReference:
+      m_KeyId: 8431750078464
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6118362486746940712}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5703636126492878049
 GameObject:
   m_ObjectHideFlags: 0

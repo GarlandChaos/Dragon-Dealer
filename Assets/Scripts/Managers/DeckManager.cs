@@ -1,17 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Gameplay
 {
     public class DeckManager : ASingleton<DeckManager>
     {
-        //Sort Card from list of possible cards (sort element and value)
-        //Return Card
-
         [Header("Object Data")]
-        [SerializeField] private int minCardValue = 5; //TODO: Make scriptable object DeckManagerSettings
+        [SerializeField] private int minCardValue = 5;
         [SerializeField] private int maxCardValue = 15;
 
         public Card GetCard()

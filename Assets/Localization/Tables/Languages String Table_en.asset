@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Languages String Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 238d10281b3fdd1449cac9f567552667, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 1336122444546834461
+  m_TableData:
+  - m_Id: 7679238144
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73475284992
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130186469376
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 681179602944
+    m_Localized: Won!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 723919560704
+    m_Localized: 'Score: {points}'
+    m_Metadata:
+      m_Items:
+      - rid: 1336122444546834461
+  - m_Id: 794136403968
+    m_Localized: Next Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 856962883584
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1677330997248
+    m_Localized: '<size=150%>Credits</size>
+
+
+
+      Bernardo Alvarez Braga - Programmer/Game
+      Designer
+
+      Bruna da Silva Souza - UI Designer/2D Artist'
+    m_Metadata:
+      m_Items:
+      - rid: 1336122444546834461
+  - m_Id: 1995573813248
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2104646688768
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2432213442560
+    m_Localized: "<align=\"center\"><size=150%>TUTORIAL</size></align>\n\nCards and
+      monsters have elements:\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2658571640832
+    m_Localized: -> Grass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2708160897024
+    m_Localized: -> Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2732345253888
+    m_Localized: -> Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3130669916160
+    m_Localized: 'Drag and drop the cards on the slots to use them:
+
+      \u2022
+      <indent=1em>Monster''s slot: if the element is different than the monster''s,
+      it will take damage equal to the card''s value. Otherwise, it will take half
+      damage.</indent>
+
+      \u2022 <indent=1em>Player''s slot: if the element is
+      different than the player''s, the element is changed. Otherwise, the player
+      will be healed. </indent>
+
+      
+
+      You win if: beat all monster''s
+      waves.
+
+      You lose if: your HP reaches 0.'
+    m_Metadata:
+      m_Items:
+      - rid: 1336122444546834461
+  - m_Id: 4252440715264
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8431750078464
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11700488626176
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11749905915904
+    m_Localized: Brazilian Portuguese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12654998970368
+    m_Localized: Select the language
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1336122444546834461
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00e0f78ca800000000e0b7888601000000e077ead8020000

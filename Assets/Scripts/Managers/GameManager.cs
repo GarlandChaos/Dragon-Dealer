@@ -31,8 +31,8 @@ namespace Game
         public void ChangeGameState(GameState newGameState)
         {
             if (newGameState == currentGameState) return;
-
             currentGameState = newGameState;
+
             onGameStateChanged?.Invoke(newGameState);
         }
     }

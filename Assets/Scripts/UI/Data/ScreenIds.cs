@@ -2,6 +2,7 @@ namespace Game.UI
 {
     public static class ScreenIds
     {
+        public const string LANGUAGE_SELECTION_SCREEN = "Language Selection Screen";
         public const string MAIN_MENU_SCREEN = "Main Menu Screen";
         public const string LEVEL_SELECTION_SCREEN = "Level Selection Screen";
         public const string TUTORIAL_SCREEN = "Tutorial Screen";

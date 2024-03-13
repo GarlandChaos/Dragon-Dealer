@@ -1,8 +1,5 @@
 using Game.Gameplay.Combat;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Game.Gameplay
@@ -90,9 +87,7 @@ namespace Game.Gameplay
         public int CalculateDamage(Card card)
         {
             if(entityController.Element == card.element)
-            {
                 return Mathf.Clamp(card.value / 2, 0, card.value);
-            }
             
             return card.value;
         }

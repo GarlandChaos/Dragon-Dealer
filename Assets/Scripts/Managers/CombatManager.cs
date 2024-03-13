@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Game.Gameplay.Combat
 {
@@ -36,14 +34,6 @@ namespace Game.Gameplay.Combat
         private void OnDestroy()
         {
             GameManager.Instance.onGameStateChanged += OnGameStateChanged;
-        }
-
-        private void Update()
-        {
-            //if(combatPacketQueue.Count > 0)
-            //{
-            //    Debug.Log("Has combat packet. Combat packet count: " + combatPacketQueue.Count);
-            //}
         }
 
         public void CreateCombatPacket(EntityController attacker, EntityController target, Card card)

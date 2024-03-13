@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Languages String Table_pt-BR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 238d10281b3fdd1449cac9f567552667, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 1336122444546834462
+  m_TableData:
+  - m_Id: 7679238144
+    m_Localized: Jogar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73475284992
+    m_Localized: Creditos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130186469376
+    m_Localized: Sair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 681179602944
+    m_Localized: Ganhou!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 723919560704
+    m_Localized: 'Pontos: {points}'
+    m_Metadata:
+      m_Items:
+      - rid: 1336122444546834462
+  - m_Id: 794136403968
+    m_Localized: Proxima Fase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 856962883584
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1677330997248
+    m_Localized: '<size=150%>Creditos</size>
+
+
+
+      Bernardo Alvarez Braga - Programador/Game
+      Designer
+
+      Bruna da Silva Souza - UI Designer/Artista 2D'
+    m_Metadata:
+      m_Items:
+      - rid: 1336122444546834462
+  - m_Id: 1995573813248
+    m_Localized: Fim de Jogo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2104646688768
+    m_Localized: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2432213442560
+    m_Localized: "<align=\"center\"><size=150%>TUTORIAL</size></align>\n\nCartas
+      e monstros possuem elementos:\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2658571640832
+    m_Localized: "-> Grama\r\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2708160897024
+    m_Localized: "-> \xC1gua\r\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2732345253888
+    m_Localized: -> Fogo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3130669916160
+    m_Localized: "Arraste as cartas nos slots para us\xE1-las:\r\n\\u2022 <indent=1em>Slots
+      de monstros: se o elemento for diferente do elemento do monstro, ele receber\xE1
+      dano igual ao valor da carta. Caso contr\xE1rio o dano \xE9 reduzido pela metade.</indent>\r\n\\u2022
+      <indent=1em>Slot do jogador: se o elemento for diferente do elemento do jogador,
+      o elemento \xE9 trocado. Caso contr\xE1rio, ser\xE1 curado.</indent>\r\n\r\nVoc\xEA
+      ganha se: vencer todas ondas de inimigos.\r\nVoc\xEA perde se: seu HP chegar
+      em 0."
+    m_Metadata:
+      m_Items:
+      - rid: 1336122444546834462
+  - m_Id: 4252440715264
+    m_Localized: Iniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8431750078464
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11700488626176
+    m_Localized: Ingles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11749905915904
+    m_Localized: Portugues Brasileiro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12654998970368
+    m_Localized: Selecione o idioma
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 1336122444546834462
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00e0f78ca800000000e0b7888601000000e077ead8020000

@@ -17,6 +17,9 @@ namespace Game.UI
         [Header("Self Contained References")]
         [SerializeField] private TMP_Text text = null;
 
+        //Properties
+        public TMP_Text TMP_Text => text;
+
         public virtual void OnValidate()
         {
             if (text == null) text = GetComponent<TMP_Text>();

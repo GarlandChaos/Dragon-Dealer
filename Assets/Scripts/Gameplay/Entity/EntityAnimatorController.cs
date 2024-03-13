@@ -10,6 +10,9 @@ namespace Game.Gameplay
         [SerializeField] private Animator animator = null;
         protected AnimatorOverrideController animatorOverrideController = null;
         protected AnimationClipOverrides clipOverrides = null;
+        private string idleKey = "Idle";
+        private string runKey = "Run";
+        private string attackKey = "Attack";
         private int idleHash = Animator.StringToHash("Idle");
         private int runHash = Animator.StringToHash("Run");
         private int attackHash = Animator.StringToHash("Attack");
@@ -32,9 +35,9 @@ namespace Game.Gameplay
             if (!initialized)
                 Initialize();
 
-            clipOverrides["Idle"] = animationClips.Idle;
-            clipOverrides["Run"] = animationClips.Run;
-            clipOverrides["Attack"] = animationClips.Attack;
+            clipOverrides[idleKey] = animationClips.Idle;
+            clipOverrides[runKey] = animationClips.Run;
+            clipOverrides[attackKey] = animationClips.Attack;
             animatorOverrideController.ApplyOverrides(clipOverrides);
             DisableAttackState();
             DisableRunState();

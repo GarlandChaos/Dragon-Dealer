@@ -9,7 +9,7 @@ namespace Game.UI
     public class UIManager : ASingleton<UIManager>
     {
         //Object Data
-        public static string firstScreen = ScreenIds.MAIN_MENU_SCREEN;
+        public static string firstScreen = ScreenIds.LANGUAGE_SELECTION_SCREEN;
 
         [Header("Asset References")]
         [SerializeField] private UISettings settings = null; //Contains screen prefabs and other settings
