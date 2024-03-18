@@ -20,9 +20,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1900114795, guid: f08a6073320761b4bb771f9aba760a25, type: 3}
+    - target: {fileID: 2157647813218611652, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2166550738037698698, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: healthPointsMax
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3824092844164808619, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: useAttackTimer

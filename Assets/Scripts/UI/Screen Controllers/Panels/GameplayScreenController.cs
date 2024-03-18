@@ -75,12 +75,13 @@ namespace Game.UI
                     int count = 0;
                     foreach (EntityUIController controller in EntityUIControllerManager.Instance.ActiveEntityUIControllerList)
                     {
+                        EnemyHealthElement enemyHealthElement = enemyHealthElementList[count];
                         controller.transform.SetParent(enemyPositionTransformList[count], false);
-                        controller.SetHealthTextSetter(enemyHealthElementList[count].HealthTextSetter);
+                        controller.SetHealthTextSetter(enemyHealthElement.HealthTextSetter, enemyHealthElement);
 
                         Sprite healthIconSprite = GetHealthIconSprite(controller.EntityController.Element);
-                        enemyHealthElementList[count].SetHealthIconSprite(healthIconSprite);
-                        enemyHealthElementList[count].EnableGraphics();
+                        enemyHealthElement.SetHealthIconSprite(healthIconSprite);
+                        enemyHealthElement.EnableGraphics();
 
                         count++;
                     }

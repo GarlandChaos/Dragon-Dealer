@@ -1,10 +1,7 @@
 using CartoonFX;
-using DG.Tweening;
 using Game.Audio;
 using Game.Gameplay.Combat;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Game.UI;
 
 namespace Game.Gameplay.State
 {
@@ -21,11 +18,17 @@ namespace Game.Gameplay.State
         {
             if(entityController.CombatController.HasFinishedAttack)
             {
+                EntityController target = CombatManager.Instance.CurrentCombatPacket.target;
                 Card card = CombatManager.Instance.CurrentCombatPacket.card;
+                
                 int damage = entityController.CombatController.CalculateDamage(card);
-                CombatManager.Instance.CurrentCombatPacket.target.HealthController.TakeDamage(damage);
+                target.HealthController.TakeDamage(damage);
+                
                 CFXR_Effect particle = ParticleManager.Instance.GetHitParticle();
-                particle.transform.position = CombatManager.Instance.CurrentCombatPacket.target.HitParticleReferenceTransform.position;
+                particle.transform.position = target.HitParticleReferenceTransform.position;
+                
+                DamageNumberElement damageNumberElement = DamageNumberElementManager.Instance.GetDamageNumberElement();
+                damageNumberElement.Initialize(damage, target.transform.position);
 
                 return new RunToIdleState();
             }

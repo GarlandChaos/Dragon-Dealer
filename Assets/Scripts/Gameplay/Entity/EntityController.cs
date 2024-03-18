@@ -11,11 +11,14 @@ namespace Game.Gameplay
         [SerializeField] private bool isPlayer = false;
         private Element element = Element.NONE;
         private EntityUIController entityUIController = null;
+        private const string playerName = "Player Controller";
+        private const string enemyName = "Enemy Controller ";
 
         [Header("Self Contained References")]
         [SerializeField] private Transform targetReferenceTransform = null;
         [SerializeField] private Transform hitParticleReferenceTransform = null;
         [SerializeField] private StateMachine stateMachine = null;
+        [SerializeField] private SpriteRenderer bodySpriteRenderer = null;
         [SerializeField] private HealthController healthController = null;
         [SerializeField] private MovementController movementController = null;
         [SerializeField] private CombatController combatController = null;
@@ -49,12 +52,14 @@ namespace Game.Gameplay
 
         public void Initialize()
         {
+            bodySpriteRenderer.enabled = false;
+
             entityUIController = isPlayer ? 
                 EntityUIControllerManager.Instance.GetPlayerUIController() : 
                 EntityUIControllerManager.Instance.GetEntityUIController();
             entityUIController.Initialize(this);
 
-            gameObject.name = isPlayer ? "Player Controller" : "Enemy Controller " + EntityControllerManager.Instance.ActiveEntityControllerCount.ToString();
+            gameObject.name = isPlayer ? playerName : enemyName + EntityControllerManager.Instance.ActiveEntityControllerCount.ToString();
 
             movementController.Reset();
             healthController.Initialize(this);
@@ -119,10 +124,12 @@ namespace Game.Gameplay
                     stateMachine.Initialize(this, new BaseState());
                     combatController.StopChargingAttack();
                     movementController.Reset();
+                    bodySpriteRenderer.enabled = false;
                     break;
                 case GameState.GameRunning:
                     stateMachine.Initialize(this, new IdleState());
                     combatController.ChargeAttack();
+                    bodySpriteRenderer.enabled = true;
                     break;
                 case GameState.GamePause:
                     break;

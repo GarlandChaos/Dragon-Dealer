@@ -85,6 +85,7 @@ MonoBehaviour:
   targetReferenceTransform: {fileID: 6808775332741331597}
   hitParticleReferenceTransform: {fileID: 8833947007180807693}
   stateMachine: {fileID: 8524273538835622919}
+  bodySpriteRenderer: {fileID: 2157647813218611652}
   healthController: {fileID: 2166550738037698698}
   movementController: {fileID: 7323494233177767959}
   combatController: {fileID: 3824092844164808619}

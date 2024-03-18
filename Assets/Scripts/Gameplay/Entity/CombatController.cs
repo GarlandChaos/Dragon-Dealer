@@ -47,7 +47,7 @@ namespace Game.Gameplay
         {
             this.entityController = entityController;
 
-            isChargingAttack = true;
+            isChargingAttack = false;
             attackTimer = 0f;
             hasFinishedAttack = false;
 

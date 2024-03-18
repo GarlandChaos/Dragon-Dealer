@@ -1,11 +1,9 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Game.Gameplay;
 using Game.Gameplay.Combat;
-using System.Threading.Tasks;
-using System;
 
 namespace Game.UI
 {
@@ -44,10 +42,14 @@ namespace Game.UI
             cardDropController.gameObject.SetActive(true);
         }
 
-        public void SetHealthTextSetter(TextSetter healthTextSetter)
+        public void SetHealthTextSetter(TextSetter healthTextSetter, EnemyHealthElement enemyHealthElement = null)
         {
             this.healthTextSetter = healthTextSetter;
             entityController.HealthController.UpdateHealth();
+
+            if (enemyHealthElement == null) return;
+
+            entityController.HealthController.onEntityDead += (controller) => enemyHealthElement.DisableGraphics();
         }
 
         public void OnHealthUpdated(int currentHealthPoints, int healthPointsMax)
@@ -117,9 +119,7 @@ namespace Game.UI
             if (delegateList == null) return;
 
             foreach (Delegate dlgt in delegateList)
-            {
                 onDeactivateEntityUIController -= (Action<EntityUIController>)dlgt;
-            }
         }
     }
 }

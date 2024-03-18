@@ -68,7 +68,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.4379533}
   m_AnchorMax: {x: 1.2412385, y: 0.76780057}
-  m_AnchoredPosition: {x: -2398.002, y: 0}
+  m_AnchoredPosition: {x: -3417, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3995185861712575710
@@ -102,8 +102,8 @@ RectTransform:
   m_Children:
   - {fileID: 8877986607588339328}
   - {fileID: 2948343046533771726}
-  - {fileID: 3946709857326753269}
   - {fileID: 3787741173915075905}
+  - {fileID: 3946709857326753269}
   - {fileID: 5600911543347510307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,10 +125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveTitleTextSetter: {fileID: 3239284840973087400}
-  levelIndicatorImageTransform: {fileID: 0}
-  levelIndicatorInitialPositionTransform: {fileID: 0}
-  levelIndicatorMiddlePositionTransform: {fileID: 0}
-  levelIndicatorFinalPositionTransform: {fileID: 0}
+  levelIndicatorImageTransform: {fileID: 2948343046533771726}
+  levelIndicatorInitialPositionTransform: {fileID: 3787741173915075905}
+  levelIndicatorMiddlePositionTransform: {fileID: 3946709857326753269}
+  levelIndicatorFinalPositionTransform: {fileID: 5600911543347510307}
 --- !u!1 &5185033502106969837
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.4379533}
   m_AnchorMax: {x: 1.2412385, y: 0.76780057}
-  m_AnchoredPosition: {x: 1962, y: 0}
+  m_AnchoredPosition: {x: 3417, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8120897661464353775

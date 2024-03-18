@@ -118,10 +118,13 @@ namespace Game.Gameplay
                 case GameState.MainMenu:
                     currentLevel = 0;
                     currentWave = 0;
+
                     EntityControllerManager.Instance.ClearEntityControllerList();
                     EntityUIControllerManager.Instance.ClearEntityUIControllerList();
+
                     if(playerController != null) 
                         playerController.gameObject.SetActive(false);
+                    
                     break;
                 case GameState.WaveStart:
                     InitializeLevel();
