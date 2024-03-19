@@ -1,1 +1,1 @@
-{"scoreArray":[{"level":0,"score":75}]}
+{"scoreArray":[]}

@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 73475284992
-    m_Localized: Creditos
+    m_Localized: "Cr\xE9ditos"
     m_Metadata:
       m_Items: []
   - m_Id: 130186469376
@@ -32,16 +32,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 681179602944
-    m_Localized: Ganhou!
+    m_Localized: "Voc\xEA ganhou!"
     m_Metadata:
       m_Items: []
   - m_Id: 723919560704
-    m_Localized: 'Pontos: {points}'
+    m_Localized: "Pontua\xE7\xE3o: {points}"
     m_Metadata:
       m_Items:
       - rid: 1336122444546834462
   - m_Id: 794136403968
-    m_Localized: Proxima Fase
+    m_Localized: "Pr\xF3xima Fase"
     m_Metadata:
       m_Items: []
   - m_Id: 856962883584
@@ -49,14 +49,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1677330997248
-    m_Localized: '<size=150%>Creditos</size>
-
-
-
-      Bernardo Alvarez Braga - Programador/Game
-      Designer
-
-      Bruna da Silva Souza - UI Designer/Artista 2D'
+    m_Localized: "<size=150%>Cr\xE9ditos</size>\n\n\nBernardo Alvarez Braga - Programador/Game
+      Designer\nBruna da Silva Souza - UI Designer/Artista 2D\n\nM\xFAsica - cynicmusic.com\nSons
+      - Kenney Vleugels, p0ss"
     m_Metadata:
       m_Items:
       - rid: 1336122444546834462
@@ -69,8 +64,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2432213442560
-    m_Localized: "<align=\"center\"><size=150%>TUTORIAL</size></align>\n\nCartas
-      e monstros possuem elementos:\r"
+    m_Localized: "Cartas e monstros possuem elementos:\r"
     m_Metadata:
       m_Items: []
   - m_Id: 2658571640832
@@ -87,12 +81,13 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3130669916160
     m_Localized: "Arraste as cartas nos slots para us\xE1-las:\r\n\\u2022 <indent=1em>Slots
-      de monstros: se o elemento for diferente do elemento do monstro, ele receber\xE1
-      dano igual ao valor da carta. Caso contr\xE1rio o dano \xE9 reduzido pela metade.</indent>\r\n\\u2022
-      <indent=1em>Slot do jogador: se o elemento for diferente do elemento do jogador,
-      o elemento \xE9 trocado. Caso contr\xE1rio, ser\xE1 curado.</indent>\r\n\r\nVoc\xEA
-      ganha se: vencer todas ondas de inimigos.\r\nVoc\xEA perde se: seu HP chegar
-      em 0."
+      de monstros: se o elemento for efetivo contra o elemento do monstro, o mesmo
+      sofrer\xE1 o dobro de dano (valor da carta x 2). Se o elemento for id\xEAntico
+      ao do monstro, o mesmo ser\xE1 curado pelo valor da carta. Qualquer outro elemento
+      far\xE1 o monstro levar dano igual ao valor da carta.</indent>\r\n\\u2022 <indent=1em>Slot
+      do jogador: se o elemento for diferente do elemento do jogador, o elemento
+      \xE9 trocado. Caso contr\xE1rio, ser\xE1 curado.</indent>\r\n\r\nVoc\xEA ganha
+      se: vencer todas ondas de inimigos.\r\nVoc\xEA perde se: seu HP chegar em 0."
     m_Metadata:
       m_Items:
       - rid: 1336122444546834462
@@ -105,21 +100,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11700488626176
-    m_Localized: Ingles
+    m_Localized: "Ingl\xEAs"
     m_Metadata:
       m_Items: []
   - m_Id: 11749905915904
-    m_Localized: Portugues Brasileiro
+    m_Localized: "Portugu\xEAs Brasileiro"
     m_Metadata:
       m_Items: []
   - m_Id: 12654998970368
     m_Localized: Selecione o idioma
     m_Metadata:
       m_Items: []
+  - m_Id: 2198455857963008
+    m_Localized: "Elementos possuem for\xE7as e fraquezas:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2205394973220864
+    m_Localized: <size=200%>\u2192</size>= efetivo contra
+    m_Metadata:
+      m_Items:
+      - rid: 1336122444546834462
   references:
     version: 2
     RefIds:
     - rid: 1336122444546834462
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e0f78ca800000000e0b7888601000000e077ead8020000
+        m_Entries: 00e0f78ca800000000e0b7888601000000e077ead802000000e0f787cbd50700

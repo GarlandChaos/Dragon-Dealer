@@ -11,12 +11,16 @@ namespace Game.Audio
         [Header("Audio Clips")]
         [SerializeField] private AudioClip mainMenuAudioClip = null;
         [SerializeField] private AudioClip gameplayAudioClip = null;
-        [SerializeField] private AudioClip hitAudioClip = null;
+        [SerializeField] private AudioClip hitNormalAudioClip = null;
+        [SerializeField] private AudioClip hitEffectiveAudioClip = null;
+        [SerializeField] private AudioClip healAudioClip = null;
         [SerializeField] private AudioClip dropCardAudioClip = null;
 
         public AudioClip MainMenuAudioClip => mainMenuAudioClip;
         public AudioClip GameplayAudioClip => gameplayAudioClip;
-        public AudioClip HitAudioClip => hitAudioClip;
+        public AudioClip HitNormalAudioClip => hitNormalAudioClip;
+        public AudioClip HitEffectiveAudioClip => hitEffectiveAudioClip;
+        public AudioClip HealAudioClip => healAudioClip;
         public AudioClip DropCardAudioClip => dropCardAudioClip;
 
         private void Start()

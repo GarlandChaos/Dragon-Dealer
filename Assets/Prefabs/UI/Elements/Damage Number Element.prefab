@@ -70,7 +70,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
-  m_sharedMaterial: {fileID: 5112775105267425159, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6195df20c583aed419d9082115a8695e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -163,4 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7371c08320b24644182bd47fee0b5273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healColor: {r: 0.44918123, g: 0.9245283, b: 0.44918123, a: 1}
+  normalDamageColor: {r: 1, g: 1, b: 1, a: 1}
+  effectiveDamageColor: {r: 0.9622642, g: 0.90475833, b: 0.24056605, a: 1}
   damageTextSetter: {fileID: 4610891408884065311}

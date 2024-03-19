@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2166550738037698698, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: healthPointsMax
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3824092844164808619, guid: b1d7eb827898d244da53ed51d9c525ed, type: 3}
       propertyPath: useAttackTimer

@@ -5,6 +5,7 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Game.Utility.Pool;
+using Game.Audio;
 
 namespace Game.UI
 {
@@ -22,6 +23,7 @@ namespace Game.UI
         private void Start()
         {
             Initialize();
+            AudioManager.Instance.PlayMusic(AudioManager.Instance.MainMenuAudioClip);
         }
 
         private async void Initialize()

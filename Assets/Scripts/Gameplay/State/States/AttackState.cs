@@ -1,3 +1,4 @@
+using UnityEngine;
 using CartoonFX;
 using Game.Audio;
 using Game.Gameplay.Combat;
@@ -11,7 +12,7 @@ namespace Game.Gameplay.State
         {
             base.Enter(entityController);
             entityController.AnimatorController.EnableAttackState();
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.HitAudioClip);
+            //AudioManager.Instance.PlaySFX(AudioManager.Instance.HitAudioClip);
         }
 
         public override IState Execute()
@@ -20,15 +21,42 @@ namespace Game.Gameplay.State
             {
                 EntityController target = CombatManager.Instance.CurrentCombatPacket.target;
                 Card card = CombatManager.Instance.CurrentCombatPacket.card;
-                
-                int damage = entityController.CombatController.CalculateDamage(card);
-                target.HealthController.TakeDamage(damage);
+
+                int damage = card.value;
+                DamageType damageType = DamageType.NORMAL;
+
+                if (entityController.IsPlayer)
+                {
+                    damage = target.CombatController.CalculateDamage(card);
+                    damageType = target.CombatController.GetDamageType(card.element);
+
+                    if (damageType == DamageType.HEAL)
+                    {
+                        AudioManager.Instance.PlaySFX(AudioManager.Instance.HealAudioClip);
+                        target.HealthController.AddHealth(damage);
+                    }
+                    else
+                    {
+                        if (damageType == DamageType.NORMAL)
+                            AudioManager.Instance.PlaySFX(AudioManager.Instance.HitNormalAudioClip);
+                        else
+                            AudioManager.Instance.PlaySFX(AudioManager.Instance.HitEffectiveAudioClip);
+
+                        target.HealthController.TakeDamage(damage);
+                    }
+                }
+                else
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.HitNormalAudioClip);
+
+                    target.HealthController.TakeDamage(damage);
+                }
                 
                 CFXR_Effect particle = ParticleManager.Instance.GetHitParticle();
                 particle.transform.position = target.HitParticleReferenceTransform.position;
                 
                 DamageNumberElement damageNumberElement = DamageNumberElementManager.Instance.GetDamageNumberElement();
-                damageNumberElement.Initialize(damage, target.transform.position);
+                damageNumberElement.Initialize(damage, target.transform.position, damageType);
 
                 return new RunToIdleState();
             }

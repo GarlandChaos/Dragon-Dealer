@@ -306,6 +306,7 @@ MonoBehaviour:
   sfxAudioSource: {fileID: 5616621885089818640}
   mainMenuAudioClip: {fileID: 8300000, guid: 5ea5e77be56ae6a4e863fa93af69f318, type: 3}
   gameplayAudioClip: {fileID: 8300000, guid: b16c4dbbdd8548f4fba3440f9cb98335, type: 3}
-  hitAudioClip: {fileID: 8300000, guid: 0bdcf8b6979edc44c82c04e054b8a3ca, type: 3}
-  entityDeadAudioClip: {fileID: 0}
+  hitNormalAudioClip: {fileID: 8300000, guid: 6f2a5e1c2040d9b4e9e9f25f277afb3a, type: 3}
+  hitEffectiveAudioClip: {fileID: 8300000, guid: 0bdcf8b6979edc44c82c04e054b8a3ca, type: 3}
+  healAudioClip: {fileID: 8300000, guid: 344179e5b6edf834897355cacc0f15c2, type: 3}
   dropCardAudioClip: {fileID: 8300000, guid: d2aabbc4ba0b0a746b1e8c84dfd1cfb7, type: 3}

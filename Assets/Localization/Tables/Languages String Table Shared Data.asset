@@ -95,6 +95,14 @@ MonoBehaviour:
     m_Key: SELECT_LANGUAGE
     m_Metadata:
       m_Items: []
+  - m_Id: 2198455857963008
+    m_Key: TUTORIAL_1.5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2205394973220864
+    m_Key: EFFECTIVE_AGAINST
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

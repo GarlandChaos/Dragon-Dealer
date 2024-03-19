@@ -1,21 +1,30 @@
-using Game.Gameplay.Combat;
 using System;
 using UnityEngine;
+using Game.Gameplay.Combat;
 
 namespace Game.Gameplay
 {
+    public enum DamageType
+    {
+        NORMAL,
+        EFFECTIVE,
+        HEAL
+    }
+
     public class CombatController : MonoBehaviour
     {
+        [Header("Object Data")]
         private EntityController entityController = null;
-
         private bool initialized = false;
         private bool isChargingAttack = true;
         private bool hasFinishedAttack = false;
         private float attackTimer = 0f;
         [SerializeField] private float waitForAttackDuration = 0f;
 
+        //Events
         public Action<float, float> onAttackTimerUpdated = null;
 
+        //Properties
         public bool HasFinishedAttack => hasFinishedAttack;
 
         private void Start()
@@ -86,10 +95,35 @@ namespace Game.Gameplay
 
         public int CalculateDamage(Card card)
         {
-            if(entityController.Element == card.element)
-                return Mathf.Clamp(card.value / 2, 0, card.value);
+            Element elementWeakness = GetElementWeakness(entityController.Element);
+            if (elementWeakness == card.element)
+                return card.value * 2;
             
             return card.value;
+        }
+
+        public Element GetElementWeakness(Element element)
+        {
+            return element switch
+            {
+                Element.GRASS => Element.FIRE,
+                Element.FIRE => Element.WATER,
+                Element.WATER => Element.GRASS,
+                Element.NONE => Element.NONE,
+                _ => Element.NONE,
+            };
+        }
+
+        public DamageType GetDamageType(Element element)
+        {
+            Element elementWeakness = GetElementWeakness(entityController.Element);
+            if (element == elementWeakness)
+                return DamageType.EFFECTIVE;
+
+            if (element == entityController.Element)
+                return DamageType.HEAL;
+
+            return DamageType.NORMAL;
         }
     }
 }

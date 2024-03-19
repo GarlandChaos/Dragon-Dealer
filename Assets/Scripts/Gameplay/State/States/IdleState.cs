@@ -1,7 +1,7 @@
-using Game.Gameplay.Combat;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Game.Gameplay.Combat;
+using Game.UI;
+using Game.Audio;
 
 namespace Game.Gameplay.State
 {
@@ -35,8 +35,14 @@ namespace Game.Gameplay.State
                 {
                     int healthPointsToAdd = CombatManager.Instance.CurrentCombatPacket.card.value;
                     entityController.HealthController.AddHealth(healthPointsToAdd);
+
+                    Vector3 targetPosition = CombatManager.Instance.CurrentCombatPacket.target.transform.position;
+                    DamageNumberElement damageNumberElement = DamageNumberElementManager.Instance.GetDamageNumberElement();
+                    damageNumberElement.Initialize(healthPointsToAdd, targetPosition, DamageType.HEAL);
+                    
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.HealAudioClip);
                 }
-                
+
                 CombatManager.Instance.FinishCurrentCombat();
                 return null;
             }

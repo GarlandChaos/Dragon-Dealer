@@ -255,8 +255,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: JOGAR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
-  m_sharedMaterial: {fileID: 5112775105267425159, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 790bbe5d8237be24c857c00f304fd92f, type: 2}
+  m_sharedMaterial: {fileID: -1765915785714473885, guid: 790bbe5d8237be24c857c00f304fd92f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -444,10 +444,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CREDITOS
+  m_text: "CR\xC9DITOS"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
-  m_sharedMaterial: {fileID: 5112775105267425159, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 790bbe5d8237be24c857c00f304fd92f, type: 2}
+  m_sharedMaterial: {fileID: -1765915785714473885, guid: 790bbe5d8237be24c857c00f304fd92f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106d62ee8b3818143a525ebd7a8c4bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noTextString: CREDITOS
+  noTextString: "CR\xC9DITOS"
   characterLimit: 0
   text: {fileID: 7760511970716412476}
 --- !u!114 &2544903022026514854
@@ -957,8 +957,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SAIR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
-  m_sharedMaterial: {fileID: 5112775105267425159, guid: 7919fa55c8db61342bfa965ec2ca06eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 790bbe5d8237be24c857c00f304fd92f, type: 2}
+  m_sharedMaterial: {fileID: -1765915785714473885, guid: 790bbe5d8237be24c857c00f304fd92f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
