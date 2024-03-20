@@ -46,7 +46,7 @@ Also you can also play or download the build version of Dragon Dealer using one 
 </p>
 
 <p align="center">
-  <img src="https://img.itch.zone/aW1hZ2UvMjU4MjA1Mi8xNTQ1NjU3Ni5wbmc=/original/LiBWrV.png"/>
+  <img src="https://img.itch.zone/aW1hZ2UvMjU4MjA1Mi8xNTQ2MTYwMi5wbmc=/original/gOrlot.png"/>
 </p>
 
 <p align="center">
