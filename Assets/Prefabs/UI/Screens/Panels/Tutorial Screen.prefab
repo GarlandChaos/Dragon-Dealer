@@ -1610,9 +1610,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:238d10281b3fdd1449cac9f567552667
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 2732345253888
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -2631,9 +2631,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:238d10281b3fdd1449cac9f567552667
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 2708160897024
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
